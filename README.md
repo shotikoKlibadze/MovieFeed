@@ -18,7 +18,8 @@ As an offline user i want the app to show the latest saced version of my feed.
 
 Scenarios ( Accaptance criteria )
 
-![image](https://user-images.githubusercontent.com/85555736/191009165-34fce8d1-4f44-47a3-8b9e-af7e7455c471.png)
+![image](https://user-images.githubusercontent.com/85555736/191011747-7d27ae4f-7975-4b53-be99-0d0f4120ab0d.png)
+
 
 USE CASE Example
 Load Feed Use Case

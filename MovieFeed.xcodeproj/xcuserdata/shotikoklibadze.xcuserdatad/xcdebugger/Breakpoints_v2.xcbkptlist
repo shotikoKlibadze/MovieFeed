@@ -14,8 +14,8 @@
             filePath = "MovieFeedTests/RemoteFeedLoaderTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "get(from:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "MovieFeed/Feed API/RemoteFeedLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "init(client:url:)"
             landmarkType = "7">
          </BreakpointContent>

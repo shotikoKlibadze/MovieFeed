@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09369AF028DB16F00043C091 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AEF28DB16F00043C091 /* HTTPClient.swift */; };
+		09369AF228DB17280043C091 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AF128DB17280043C091 /* FeedItemsMapper.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09369AEF28DB16F00043C091 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		09369AF128DB17280043C091 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFeed.h; sourceTree = "<group>"; };
 		09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MovieFeed.docc; sourceTree = "<group>"; };
@@ -77,10 +81,10 @@
 		09B1DBBC2883F9DD00D8A10E /* MovieFeed */ = {
 			isa = PBXGroup;
 			children = (
+				09B1DBDB2883FADE00D8A10E /* Feed Feature */,
 				09B1DBDC28840CBB00D8A10E /* Feed API */,
 				09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */,
 				09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */,
-				09B1DBDB2883FADE00D8A10E /* Feed Feature */,
 			);
 			path = MovieFeed;
 			sourceTree = "<group>";
@@ -105,7 +109,9 @@
 		09B1DBDC28840CBB00D8A10E /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
+				09369AEF28DB16F00043C091 /* HTTPClient.swift */,
 				09B1DBDD28840CCA00D8A10E /* RemoteFeedLoader.swift */,
+				09369AF128DB17280043C091 /* FeedItemsMapper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -220,7 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B1DBDE28840CCA00D8A10E /* RemoteFeedLoader.swift in Sources */,
+				09369AF028DB16F00043C091 /* HTTPClient.swift in Sources */,
 				09B1DBD72883FA6400D8A10E /* FeedLoader.swift in Sources */,
+				09369AF228DB17280043C091 /* FeedItemsMapper.swift in Sources */,
 				09B1DBD52883FA3B00D8A10E /* FeedItem.swift in Sources */,
 				09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */,
 			);

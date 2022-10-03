@@ -10,6 +10,7 @@
 		09369AF028DB16F00043C091 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AEF28DB16F00043C091 /* HTTPClient.swift */; };
 		09369AF228DB17280043C091 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AF128DB17280043C091 /* FeedItemsMapper.swift */; };
 		09369AF728DC9ADF0043C091 /* URLsesionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AF628DC9ADF0043C091 /* URLsesionHTTPClientTests.swift */; };
+		09369B0228EAF3C00043C091 /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +34,7 @@
 		09369AEF28DB16F00043C091 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		09369AF128DB17280043C091 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		09369AF628DC9ADF0043C091 /* URLsesionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLsesionHTTPClientTests.swift; sourceTree = "<group>"; };
+		09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLeakTrackingHelper.swift; sourceTree = "<group>"; };
 		09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFeed.h; sourceTree = "<group>"; };
 		09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MovieFeed.docc; sourceTree = "<group>"; };
@@ -65,10 +67,19 @@
 		09369AF328DB21340043C091 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
+				09369B0028EAF3AB0043C091 /* Helpers */,
 				09B1DBD92883FAD200D8A10E /* RemoteFeedLoaderTests.swift */,
 				09369AF628DC9ADF0043C091 /* URLsesionHTTPClientTests.swift */,
 			);
 			name = "Feed API";
+			sourceTree = "<group>";
+		};
+		09369B0028EAF3AB0043C091 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		09B1DBB02883F9DD00D8A10E = {
@@ -251,6 +262,7 @@
 			files = (
 				09B1DBDA2883FAD200D8A10E /* RemoteFeedLoaderTests.swift in Sources */,
 				09369AF728DC9ADF0043C091 /* URLsesionHTTPClientTests.swift in Sources */,
+				09369B0228EAF3C00043C091 /* MemoryLeakTrackingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

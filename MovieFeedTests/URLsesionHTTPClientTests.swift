@@ -8,7 +8,7 @@
 import XCTest
 import MovieFeed
 
-class URLSessionHTTPClient {
+class URLSessionHTTPClient: HTTPClient {
     
     let session: URLSession
     
@@ -21,6 +21,9 @@ class URLSessionHTTPClient {
             if let error = error {
                 completion(.failure(error))
             }
+            if let data = data, let response = response as? HTTPURLResponse {
+                completion(.success(data, response))
+            }
         }.resume()
     }
     
@@ -28,53 +31,110 @@ class URLSessionHTTPClient {
 
 class URLSessionHTTPClientTests : XCTestCase {
     
-    func test_getFromURL_performsGetRequestWithURL() {
+    override func setUp() {
+        super.setUp()
         URLProtocolStub.startInterceptingRequests()
-        
-        let url = URL(string: "fakeURL")!
-        let sut = URLSessionHTTPClient()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        URLProtocolStub.stopInterceptingRequests()
+    }
+    
+    func test_getFromURL_performsGetRequestWithURL() {
+    
+        let url = fakeURL()
         let exp = expectation(description: "Wait for request")
         
         URLProtocolStub.observeRequest { request in
-            
             XCTAssertEqual(request.url, url)
             XCTAssertEqual(request.httpMethod, "GET")
             exp.fulfill()
         }
         
-        sut.get(from: url, completion: { _ in })
+        makeSUT().get(from: url, completion: { _ in })
         
         wait(for: [exp], timeout: 1.0)
-        URLProtocolStub.stopInterceptingRequests()
     }
         
     func test_getFromURL_failsOnRequestError() {
-        URLProtocolStub.startInterceptingRequests()
-        let url = URL(string: "fakeURL")!
-        let error = NSError(domain: "any error", code: 1)
-        let sut = URLSessionHTTPClient()
-        let exp = expectation(description: "Wait for completion")
+        let requestError = anyNSError()
+        let recievedError = resultErrorFor(data: nil, response: nil, error: requestError)
+        XCTAssertEqual(recievedError as NSError?, requestError)
+    }
+    
+    func test_getFromURL_suceedsOnHTTPURLresponsWithData() {
+        let data = anyData()
+        let response = anyHTTPURLResponse()
+        URLProtocolStub.stub(data: data, response: response, error: nil)
         
-        URLProtocolStub.stub(data: nil, response: nil, error: error)
+        let exp = expectation(description: "wait for completion")
         
-        sut.get(from: url) { result in
+        makeSUT().get(from: fakeURL()) { result in
             switch result {
-            case .failure(let recievedError as NSError):
-                //Filtered it because the error was comming with options for URLPRotocolClass
-                let filteredError = NSError(domain: recievedError.domain, code: recievedError.code)
-                XCTAssertEqual(error, filteredError)
+            case let .success(recievedData, recievedResponse):
+                XCTAssertEqual(data, recievedData)
+                //XCTAssertEqual(response, recievedResponse)
+                XCTAssertEqual(response.statusCode, recievedResponse.statusCode)
+                XCTAssertEqual(response.url, recievedResponse.url)
             default:
                 XCTFail()
             }
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 3.0)
-        URLProtocolStub.stopInterceptingRequests()
+        wait(for: [exp], timeout: 1.0)
     }
     
+//    func test_getFromURL_failsOnAllInvalidPrepresentationCases()
+
+    //MARK: - Helper functions
     
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
+        let sut = URLSessionHTTPClient()
+        checkForMemoryLeask(isntance: sut,file: file, line: line)
+        return URLSessionHTTPClient()
+    }
     
-    //MARK: - Helpers
+    private func resultErrorFor(data: Data?, response: URLResponse?, error: Error?,file: StaticString = #filePath, line: UInt = #line) -> Error? {
+        URLProtocolStub.stub(data: data, response: response, error: error)
+        let sut = makeSUT(file:file,line: line)
+        
+        let exp = expectation(description: "Wait for completion")
+        var recievedError: Error?
+        sut.get(from: fakeURL()) { result in
+            switch result {
+            case let .failure(error as NSError?):
+                if let error = error {
+                    //Filtered it because the error was comming with options from URLPRotocolClass
+                    let filteredError = NSError(domain: error.domain, code: error.code)
+                    recievedError = filteredError
+                }
+            default:
+                XCTFail("Failure", file: file , line: line)
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        return recievedError
+    }
+    
+    private func fakeURL() -> URL {
+        return URL(string: "fakeurl")!
+    }
+    
+    private func anyData() -> Data {
+        return Data.init()
+    }
+    
+    private func anyHTTPURLResponse() -> HTTPURLResponse {
+        return HTTPURLResponse(url: fakeURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+    }
+    
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any Error", code: 0)
+    }
+    
+    //MARK: - Helper class
     
     private class URLProtocolStub: URLProtocol {
          

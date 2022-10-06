@@ -24,7 +24,6 @@ class MovieFeedAPIEndToEndTests: XCTestCase {
         feedLoader.load { result in
             recievedResult = result
             exp.fulfill()
-         
         }
        
         wait(for: [exp], timeout: 5.0)

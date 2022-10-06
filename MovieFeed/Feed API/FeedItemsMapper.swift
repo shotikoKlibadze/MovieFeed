@@ -11,14 +11,14 @@ import Foundation
 final class FeedItemsMapper {
     
     private struct Root: Codable {
-        let results: [Item]
+        let items: [Item]
         
-        enum CodinKeys: String, CodingKey {
+        enum CodingKeys: String, CodingKey {
             case items = "results"
         }
         
         var feed: [FeedItem] {
-            return results.map({$0.item})
+            return items.map({$0.item})
         }
     }
 

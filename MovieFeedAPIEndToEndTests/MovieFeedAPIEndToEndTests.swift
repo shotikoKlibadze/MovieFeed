@@ -28,7 +28,7 @@ class MovieFeedAPIEndToEndTests: XCTestCase {
         }
        
         wait(for: [exp], timeout: 5.0)
-        
+       
         switch recievedResult {
         case let .success(items):
             XCTAssertEqual(items.count, 20)

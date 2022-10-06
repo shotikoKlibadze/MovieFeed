@@ -11,6 +11,9 @@
 		09369AF228DB17280043C091 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AF128DB17280043C091 /* FeedItemsMapper.swift */; };
 		09369AF728DC9ADF0043C091 /* URLsesionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369AF628DC9ADF0043C091 /* URLsesionHTTPClientTests.swift */; };
 		09369B0228EAF3C00043C091 /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
+		09369B0428EB19650043C091 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0328EB19650043C091 /* URLSessionHTTPClient.swift */; };
+		09369B0C28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */; };
+		09369B0D28EEBFAA0043C091 /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		09369B0E28EEBFAA0043C091 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09B1DBB12883F9DD00D8A10E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09B1DBB92883F9DD00D8A10E;
+			remoteInfo = MovieFeed;
+		};
 		09B1DBC62883F9DE00D8A10E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 09B1DBB12883F9DD00D8A10E /* Project object */;
@@ -35,6 +45,9 @@
 		09369AF128DB17280043C091 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		09369AF628DC9ADF0043C091 /* URLsesionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLsesionHTTPClientTests.swift; sourceTree = "<group>"; };
 		09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLeakTrackingHelper.swift; sourceTree = "<group>"; };
+		09369B0328EB19650043C091 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		09369B0928EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFeed.h; sourceTree = "<group>"; };
 		09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MovieFeed.docc; sourceTree = "<group>"; };
@@ -46,6 +59,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		09369B0628EEBFAA0043C091 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09369B0D28EEBFAA0043C091 /* MovieFeed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		09B1DBB72883F9DD00D8A10E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,11 +103,20 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		09369B0A28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests */ = {
+			isa = PBXGroup;
+			children = (
+				09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */,
+			);
+			path = MovieFeedAPIEndToEndTests;
+			sourceTree = "<group>";
+		};
 		09B1DBB02883F9DD00D8A10E = {
 			isa = PBXGroup;
 			children = (
 				09B1DBBC2883F9DD00D8A10E /* MovieFeed */,
 				09B1DBC82883F9DE00D8A10E /* MovieFeedTests */,
+				09369B0A28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests */,
 				09B1DBBB2883F9DD00D8A10E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +126,7 @@
 			children = (
 				09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */,
 				09B1DBC42883F9DE00D8A10E /* MovieFeedTests.xctest */,
+				09369B0928EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,9 +162,10 @@
 		09B1DBDC28840CBB00D8A10E /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
-				09369AEF28DB16F00043C091 /* HTTPClient.swift */,
 				09B1DBDD28840CCA00D8A10E /* RemoteFeedLoader.swift */,
 				09369AF128DB17280043C091 /* FeedItemsMapper.swift */,
+				09369AEF28DB16F00043C091 /* HTTPClient.swift */,
+				09369B0328EB19650043C091 /* URLSessionHTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -152,6 +184,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		09369B0828EEBFAA0043C091 /* MovieFeedAPIEndToEndTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09369B1028EEBFAA0043C091 /* Build configuration list for PBXNativeTarget "MovieFeedAPIEndToEndTests" */;
+			buildPhases = (
+				09369B0528EEBFAA0043C091 /* Sources */,
+				09369B0628EEBFAA0043C091 /* Frameworks */,
+				09369B0728EEBFAA0043C091 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09369B0F28EEBFAA0043C091 /* PBXTargetDependency */,
+			);
+			name = MovieFeedAPIEndToEndTests;
+			productName = MovieFeedAPIEndToEndTests;
+			productReference = 09369B0928EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		09B1DBB92883F9DD00D8A10E /* MovieFeed */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09B1DBCE2883F9DE00D8A10E /* Build configuration list for PBXNativeTarget "MovieFeed" */;
@@ -198,6 +248,9 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					09369B0828EEBFAA0043C091 = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					09B1DBB92883F9DD00D8A10E = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -221,11 +274,19 @@
 			targets = (
 				09B1DBB92883F9DD00D8A10E /* MovieFeed */,
 				09B1DBC32883F9DE00D8A10E /* MovieFeedTests */,
+				09369B0828EEBFAA0043C091 /* MovieFeedAPIEndToEndTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		09369B0728EEBFAA0043C091 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		09B1DBB82883F9DD00D8A10E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,10 +304,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		09369B0528EEBFAA0043C091 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09369B0C28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		09B1DBB62883F9DD00D8A10E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09369B0428EB19650043C091 /* URLSessionHTTPClient.swift in Sources */,
 				09B1DBDE28840CCA00D8A10E /* RemoteFeedLoader.swift in Sources */,
 				09369AF028DB16F00043C091 /* HTTPClient.swift in Sources */,
 				09B1DBD72883FA6400D8A10E /* FeedLoader.swift in Sources */,
@@ -269,6 +339,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		09369B0F28EEBFAA0043C091 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09B1DBB92883F9DD00D8A10E /* MovieFeed */;
+			targetProxy = 09369B0E28EEBFAA0043C091 /* PBXContainerItemProxy */;
+		};
 		09B1DBC72883F9DE00D8A10E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 09B1DBB92883F9DD00D8A10E /* MovieFeed */;
@@ -277,6 +352,36 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		09369B1128EEBFAA0043C091 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XZ3GM4S56F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = shotikoKlibadze.MovieFeedAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		09369B1228EEBFAA0043C091 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XZ3GM4S56F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = shotikoKlibadze.MovieFeedAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		09B1DBCC2883F9DE00D8A10E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -487,6 +592,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		09369B1028EEBFAA0043C091 /* Build configuration list for PBXNativeTarget "MovieFeedAPIEndToEndTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09369B1128EEBFAA0043C091 /* Debug */,
+				09369B1228EEBFAA0043C091 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		09B1DBB42883F9DD00D8A10E /* Build configuration list for PBXProject "MovieFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

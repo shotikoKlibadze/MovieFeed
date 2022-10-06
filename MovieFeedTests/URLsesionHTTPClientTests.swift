@@ -8,27 +8,6 @@
 import XCTest
 import MovieFeed
 
-class URLSessionHTTPClient: HTTPClient {
-    
-    let session: URLSession
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success(data, response))
-            }
-        }.resume()
-    }
-    
-}
-
 class URLSessionHTTPClientTests : XCTestCase {
     
     override func setUp() {

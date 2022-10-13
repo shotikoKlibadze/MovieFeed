@@ -18,7 +18,7 @@ As an offline user i want the app to show the latest saced version of my feed.
 
 Scenarios ( Accaptance criteria )
 
-![image](https://user-images.githubusercontent.com/85555736/191011747-7d27ae4f-7975-4b53-be99-0d0f4120ab0d.png)
+![image](https://user-images.githubusercontent.com/85555736/195566398-4460b680-cbc7-4f04-8609-6f5fdaee61c8.png)
 
 
 ## USE CASES
@@ -47,6 +47,39 @@ Scenarios ( Accaptance criteria )
 #### No connectivity – error course (sad path):
 
 •	System delivers connectivity error
+
+
+### Load Feed From Cache Use Case
+
+#### Data:
+
+•	Max Age (7 days old)
+
+#### Primary course (happy path):
+
+•	Execute “Load Feed Items” command with above data
+
+•	System fetches feed data from cache
+
+•	System validates cache is less than seven days old
+
+•	System creates feed items from cached data
+
+•	System delivers feed items
+
+#### Error course (sad path):
+
+•	System delivers error
+
+#### Expired cache course (sad path):
+
+•	System deletes cache
+
+•	System delivers error
+
+#### Epmty cache course (sad path):
+
+•	System delivers no feed items
 
 
 # Architecture

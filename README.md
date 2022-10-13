@@ -23,6 +23,8 @@ Scenarios ( Accaptance criteria )
 
 ## USE CASES
 
+
+
 ### 1. Load Feed From Remote Use Case
 
 #### Data:
@@ -47,6 +49,7 @@ Scenarios ( Accaptance criteria )
 #### No connectivity – error course (sad path):
 
 •	System delivers connectivity error
+
 
 
 ### 2. Load Feed From Cache Use Case
@@ -82,5 +85,35 @@ Scenarios ( Accaptance criteria )
 •	System delivers no feed items
 
 
+
+### 3. Cache Feed Use Case
+
+#### Data:
+
+•	Feed Items
+
+#### Primary course (happy path):
+
+•	Execute “Save Feed Items” command with above data
+
+•	System deletes old cache data
+
+•	System encodes feed items
+
+•	System timestamos the new cache
+
+•	System saves new data
+
+•	System delivers success message
+
+#### Deleting error course (sad path):
+
+•	System delivers error
+
+#### Saving cache error course (sad path):
+
+•	System delivers error
+
+
 # Architecture
-![image](https://user-images.githubusercontent.com/85555736/191011147-8ce46a75-394c-4b8a-a282-72f5b59b7cb6.png)
+![image](https://user-images.githubusercontent.com/85555736/195566920-de0776c3-a0ad-4785-8ed5-dc0ce3d84f64.png)

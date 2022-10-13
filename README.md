@@ -23,7 +23,7 @@ Scenarios ( Accaptance criteria )
 
 ## USE CASES
 
-### Load Feed From Remote Use Case
+### 1. Load Feed From Remote Use Case
 
 #### Data:
 
@@ -49,7 +49,7 @@ Scenarios ( Accaptance criteria )
 •	System delivers connectivity error
 
 
-### Load Feed From Cache Use Case
+### 2. Load Feed From Cache Use Case
 
 #### Data:
 

@@ -23,7 +23,7 @@ Scenarios ( Accaptance criteria )
 
 ## USE CASES
 
-###Load Feed From Remote Use Case
+### Load Feed From Remote Use Case
 
 1) Data:
 •	URL

@@ -30,15 +30,21 @@ Scenarios ( Accaptance criteria )
 
 2) Primary course (happy path):
 •	Execute “Load” command with above data
+
 •	System downloads data from URL
+
 •	System validates downloaded data
+
 •	System creates feed items from valid data
+
 •	System delivers feed items
 
 3) Invalid Data – error course (sad path):
+
 •	System delivers invalid error
 
 4) No connectivity – error course (sad path):
+
 •	System delivers connectivity error
 
 

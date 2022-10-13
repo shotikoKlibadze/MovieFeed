@@ -25,7 +25,7 @@ Scenarios ( Accaptance criteria )
 
 
 
-### 1. Load Feed From Remote Use Case
+## 1. Load Feed From Remote Use Case
 
 #### Data:
 
@@ -52,7 +52,7 @@ Scenarios ( Accaptance criteria )
 
 
 
-### 2. Load Feed From Cache Use Case
+## 2. Load Feed From Cache Use Case
 
 #### Data:
 
@@ -86,7 +86,7 @@ Scenarios ( Accaptance criteria )
 
 
 
-### 3. Cache Feed Use Case
+## 3. Cache Feed Use Case
 
 #### Data:
 

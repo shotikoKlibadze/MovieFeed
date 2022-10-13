@@ -14,7 +14,7 @@ class MovieFeedAPIEndToEndTests: XCTestCase {
 
     func test_endToEndTestGetFeedResult_matchesExpectedData() {
         let url = URL(string: urlString)!
-        let client = URLSessionHTTPClient()
+        let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let feedLoader = RemoteFeedLoader(client: client, url: url)
         
         var recievedResult: LoadFeedResult?
@@ -26,7 +26,7 @@ class MovieFeedAPIEndToEndTests: XCTestCase {
             exp.fulfill()
         }
        
-         wait(for: [exp], timeout: 5.0)
+        wait(for: [exp], timeout: 5.0)
        
         switch recievedResult {
         case let .success(items):

@@ -1,5 +1,5 @@
 //
-//  RemoteFeedLoaderTests.swift
+//  LoadFeedFromRemoteUseCaseTests.swift
 //  MovieFeedTests
 //
 //  Created by Shotiko Klibadze on 17.07.22.
@@ -8,7 +8,7 @@
 import XCTest
 import MovieFeed
 
-class RemoteFeedLoaderTests: XCTestCase {
+class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     //Make request call once
     func test_load_requestsDatFromURL() {

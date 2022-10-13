@@ -21,33 +21,25 @@ Scenarios ( Accaptance criteria )
 ![image](https://user-images.githubusercontent.com/85555736/191011747-7d27ae4f-7975-4b53-be99-0d0f4120ab0d.png)
 
 
-USE CASE Example
-Load Feed Use Case
+## USE CASES
+
+###Load Feed From Remote Use Case
 
 1) Data:
-
 •	URL
 
 2) Primary course (happy path):
-
 •	Execute “Load” command with above data
-
 •	System downloads data from URL
-
 •	System validates downloaded data
-
 •	System creates feed items from valid data
-
 •	System delivers feed items
 
-
 3) Invalid Data – error course (sad path):
-
-•	System delivers error
+•	System delivers invalid error
 
 4) No connectivity – error course (sad path):
-
-•	System delivers error
+•	System delivers connectivity error
 
 
 # Architecture

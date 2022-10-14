@@ -14,6 +14,7 @@
 		09369B0428EB19650043C091 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0328EB19650043C091 /* URLSessionHTTPClient.swift */; };
 		09369B0C28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */; };
 		09369B0D28EEBFAA0043C091 /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
+		0949AD5C28F81C32006A086F /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD5B28F81C32006A086F /* CacheFeedUseCaseTests.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,6 +49,7 @@
 		09369B0328EB19650043C091 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		09369B0928EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		0949AD5B28F81C32006A086F /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFeed.h; sourceTree = "<group>"; };
 		09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MovieFeed.docc; sourceTree = "<group>"; };
@@ -88,7 +90,6 @@
 		09369AF328DB21340043C091 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
-				09369B0028EAF3AB0043C091 /* Helpers */,
 				09B1DBD92883FAD200D8A10E /* LoadFeedFromRemoteUseCaseTests.swift */,
 				09369AF628DC9ADF0043C091 /* URLsesionHTTPClientTests.swift */,
 			);
@@ -109,6 +110,14 @@
 				09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */,
 			);
 			path = MovieFeedAPIEndToEndTests;
+			sourceTree = "<group>";
+		};
+		0949AD5A28F81C1B006A086F /* Feed Cache */ = {
+			isa = PBXGroup;
+			children = (
+				0949AD5B28F81C32006A086F /* CacheFeedUseCaseTests.swift */,
+			);
+			name = "Feed Cache";
 			sourceTree = "<group>";
 		};
 		09B1DBB02883F9DD00D8A10E = {
@@ -145,6 +154,8 @@
 		09B1DBC82883F9DE00D8A10E /* MovieFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				09369B0028EAF3AB0043C091 /* Helpers */,
+				0949AD5A28F81C1B006A086F /* Feed Cache */,
 				09369AF328DB21340043C091 /* Feed API */,
 			);
 			path = MovieFeedTests;
@@ -332,6 +343,7 @@
 			files = (
 				09B1DBDA2883FAD200D8A10E /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
 				09369AF728DC9ADF0043C091 /* URLsesionHTTPClientTests.swift in Sources */,
+				0949AD5C28F81C32006A086F /* CacheFeedUseCaseTests.swift in Sources */,
 				09369B0228EAF3C00043C091 /* MemoryLeakTrackingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

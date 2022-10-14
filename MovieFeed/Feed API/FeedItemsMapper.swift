@@ -27,7 +27,7 @@ final class FeedItemsMapper {
        let id: Int
        let description: String
        let title: String
-       let image: String
+       let image: String?
 
         enum CodingKeys: String, CodingKey {
             case id
@@ -37,7 +37,7 @@ final class FeedItemsMapper {
         }
         
         var item : FeedItem {
-            return FeedItem(id: id, description: description, title: title, imageURL: image)
+            return FeedItem(id: id, description: description, title: title, imageURL: image ?? "")
         }
     }
     
@@ -51,4 +51,3 @@ final class FeedItemsMapper {
         return .success(root.feed)
     }
 }
-

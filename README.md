@@ -1,5 +1,9 @@
 # MovieFeed - Test Driven Development Example App
 
+# Architecture 
+#### Updated according to project progression *
+![image](https://user-images.githubusercontent.com/85555736/195838697-70c44a7a-9b56-4802-9d4c-bcaecfdbcb77.png)
+
 # BDD Specs
 
 Story: User request to see the feed
@@ -115,5 +119,3 @@ Scenarios ( Accaptance criteria )
 •	System delivers error
 
 
-# Architecture
-![image](https://user-images.githubusercontent.com/85555736/195838697-70c44a7a-9b56-4802-9d4c-bcaecfdbcb77.png)

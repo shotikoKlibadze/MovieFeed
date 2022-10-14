@@ -77,7 +77,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     func test_doesnotDeliverAnDeletionErrorIfSUTInstanceIsDealocated() {
         let store = FeedStoreSpy()
         var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
-        var completions = [Error?]()
+        var completions = [LocalFeedLoader.SaveResult]()
         
         sut?.save(items: [uniqueItem()], completion: {completions.append($0)})
         sut = nil
@@ -89,7 +89,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     func test_doesnotDeliverAnInsertionErrorIfSUTInstanceIsDealocated() {
         let store = FeedStoreSpy()
         var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
-        var completions = [Error?]()
+        var completions = [LocalFeedLoader.SaveResult]()
         
         sut?.save(items: [uniqueItem()], completion: {completions.append($0)})
         store.completeDeletionSuccessfully()

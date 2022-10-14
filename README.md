@@ -116,4 +116,4 @@ Scenarios ( Accaptance criteria )
 
 
 # Architecture
-![image](https://user-images.githubusercontent.com/85555736/195566920-de0776c3-a0ad-4785-8ed5-dc0ce3d84f64.png)
+![image](https://user-images.githubusercontent.com/85555736/195838697-70c44a7a-9b56-4802-9d4c-bcaecfdbcb77.png)

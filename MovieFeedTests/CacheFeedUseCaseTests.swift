@@ -8,39 +8,6 @@
 import XCTest
 import MovieFeed
 
-class LocalFeedLoader {
-    
-    let store: FeedStore
-    let currentDate: () -> Date
-    
-    init (store: FeedStore, currentDate: @escaping () -> Date) {
-        self.store = store
-        self.currentDate = currentDate
-    }
-    
-    func save(items: [FeedItem], completion: @escaping (Error?) -> Void ) {
-        store.deleteCachedFeed { [unowned self] error in
-            
-            if error == nil {
-                self.store.insertItems(items: items, date: currentDate(), completion: completion)
-            } else {
-                completion(error)
-            }
-        }
-    }
-}
-
-protocol FeedStore {
-    
-    typealias DelitionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    
-    func deleteCachedFeed(completion: @escaping DelitionCompletion)
-    func insertItems(items: [FeedItem], date: Date, completion: @escaping InsertionCompletion)
-}
-
-
-
 final class CacheFeedUseCaseTests: XCTestCase {
 
     func test_init_doesNotDeleteCachedUponeCreaction() {
@@ -107,6 +74,31 @@ final class CacheFeedUseCaseTests: XCTestCase {
         }
     }
     
+    func test_doesnotDeliverAnDeletionErrorIfSUTInstanceIsDealocated() {
+        let store = FeedStoreSpy()
+        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        var completions = [Error?]()
+        
+        sut?.save(items: [uniqueItem()], completion: {completions.append($0)})
+        sut = nil
+        store.completeDelition(with: anyNSError())
+        
+        XCTAssertTrue(completions.isEmpty)
+    }
+    
+    func test_doesnotDeliverAnInsertionErrorIfSUTInstanceIsDealocated() {
+        let store = FeedStoreSpy()
+        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        var completions = [Error?]()
+        
+        sut?.save(items: [uniqueItem()], completion: {completions.append($0)})
+        store.completeDeletionSuccessfully()
+        sut = nil
+        store.completeInsertion(with: anyNSError())
+        
+        XCTAssertTrue(completions.isEmpty)
+    }
+    
     // MARK: - Helpers -
     
     private class FeedStoreSpy: FeedStore {
@@ -152,14 +144,16 @@ final class CacheFeedUseCaseTests: XCTestCase {
     }
     
     private func expect(_ sut: LocalFeedLoader, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+        
         var recievedError: Error?
         let exp = expectation(description: "wait for error")
+        
         sut.save(items: [uniqueItem()]) { error in
             recievedError = error
             exp.fulfill()
         }
-        
         action()
+        
         wait(for: [exp], timeout: 1)
         XCTAssertEqual(recievedError as? NSError, expectedError, file: file, line: line)
     }

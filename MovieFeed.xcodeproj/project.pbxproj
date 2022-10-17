@@ -19,6 +19,8 @@
 		0949AD6228F9757A006A086F /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6128F9757A006A086F /* FeedStore.swift */; };
 		0949AD6A28FD7A7B006A086F /* LocalFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */; };
 		0949AD6D28FD7A9F006A086F /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6C28FD7A9F006A086F /* RemoteFeedItem.swift */; };
+		0949AD6F28FD81FF006A086F /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6E28FD81FF006A086F /* LoadFeedFromCacheUseCaseTests.swift */; };
+		0949AD7228FD8932006A086F /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD7128FD8932006A086F /* FeedStoreSpy.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,6 +60,8 @@
 		0949AD6128F9757A006A086F /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedItem.swift; sourceTree = "<group>"; };
 		0949AD6C28FD7A9F006A086F /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
+		0949AD6E28FD81FF006A086F /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
+		0949AD7128FD8932006A086F /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
 		09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFeed.h; sourceTree = "<group>"; };
 		09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MovieFeed.docc; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 		0949AD5A28F81C1B006A086F /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				0949AD7028FD891B006A086F /* Helpers */,
 				0949AD5B28F81C32006A086F /* CacheFeedUseCaseTests.swift */,
+				0949AD6E28FD81FF006A086F /* LoadFeedFromCacheUseCaseTests.swift */,
 			);
 			name = "Feed Cache";
 			sourceTree = "<group>";
@@ -136,6 +142,14 @@
 				0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */,
 			);
 			path = "Feed Cache";
+			sourceTree = "<group>";
+		};
+		0949AD7028FD891B006A086F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0949AD7128FD8932006A086F /* FeedStoreSpy.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		09B1DBB02883F9DD00D8A10E = {
@@ -161,8 +175,8 @@
 		09B1DBBC2883F9DD00D8A10E /* MovieFeed */ = {
 			isa = PBXGroup;
 			children = (
-				0949AD5D28F97531006A086F /* Feed Cache */,
 				09B1DBDB2883FADE00D8A10E /* Feed Feature */,
+				0949AD5D28F97531006A086F /* Feed Cache */,
 				09B1DBDC28840CBB00D8A10E /* Feed API */,
 				09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */,
 				09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */,
@@ -369,6 +383,8 @@
 				09369AF728DC9ADF0043C091 /* URLsesionHTTPClientTests.swift in Sources */,
 				0949AD5C28F81C32006A086F /* CacheFeedUseCaseTests.swift in Sources */,
 				09369B0228EAF3C00043C091 /* MemoryLeakTrackingHelper.swift in Sources */,
+				0949AD7228FD8932006A086F /* FeedStoreSpy.swift in Sources */,
+				0949AD6F28FD81FF006A086F /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

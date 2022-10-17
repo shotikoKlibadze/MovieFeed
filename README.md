@@ -2,7 +2,7 @@
 
 # Architecture 
 #### Updated according to project progression *
-![image](https://user-images.githubusercontent.com/85555736/195838697-70c44a7a-9b56-4802-9d4c-bcaecfdbcb77.png)
+![image](https://user-images.githubusercontent.com/85555736/196176043-30389921-6385-457d-909e-a77a4b244cd5.png)
 
 # BDD Specs
 

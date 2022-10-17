@@ -17,6 +17,8 @@
 		0949AD5C28F81C32006A086F /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD5B28F81C32006A086F /* CacheFeedUseCaseTests.swift */; };
 		0949AD5F28F97543006A086F /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD5E28F97543006A086F /* LocalFeedLoader.swift */; };
 		0949AD6228F9757A006A086F /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6128F9757A006A086F /* FeedStore.swift */; };
+		0949AD6A28FD7A7B006A086F /* LocalFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */; };
+		0949AD6D28FD7A9F006A086F /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD6C28FD7A9F006A086F /* RemoteFeedItem.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +56,8 @@
 		0949AD5B28F81C32006A086F /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		0949AD5E28F97543006A086F /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		0949AD6128F9757A006A086F /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
+		0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedItem.swift; sourceTree = "<group>"; };
+		0949AD6C28FD7A9F006A086F /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 		09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieFeed.h; sourceTree = "<group>"; };
 		09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MovieFeed.docc; sourceTree = "<group>"; };
@@ -127,8 +131,9 @@
 		0949AD5D28F97531006A086F /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
-				0949AD5E28F97543006A086F /* LocalFeedLoader.swift */,
 				0949AD6128F9757A006A086F /* FeedStore.swift */,
+				0949AD5E28F97543006A086F /* LocalFeedLoader.swift */,
+				0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			children = (
 				09B1DBDD28840CCA00D8A10E /* RemoteFeedLoader.swift */,
 				09369AF128DB17280043C091 /* FeedItemsMapper.swift */,
+				0949AD6C28FD7A9F006A086F /* RemoteFeedItem.swift */,
 				09369AEF28DB16F00043C091 /* HTTPClient.swift */,
 				09369B0328EB19650043C091 /* URLSessionHTTPClient.swift */,
 			);
@@ -345,10 +351,12 @@
 				09369B0428EB19650043C091 /* URLSessionHTTPClient.swift in Sources */,
 				09B1DBDE28840CCA00D8A10E /* RemoteFeedLoader.swift in Sources */,
 				09369AF028DB16F00043C091 /* HTTPClient.swift in Sources */,
+				0949AD6A28FD7A7B006A086F /* LocalFeedItem.swift in Sources */,
 				09B1DBD72883FA6400D8A10E /* FeedLoader.swift in Sources */,
 				09369AF228DB17280043C091 /* FeedItemsMapper.swift in Sources */,
 				09B1DBD52883FA3B00D8A10E /* FeedItem.swift in Sources */,
 				0949AD5F28F97543006A086F /* LocalFeedLoader.swift in Sources */,
+				0949AD6D28FD7A9F006A086F /* RemoteFeedItem.swift in Sources */,
 				09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

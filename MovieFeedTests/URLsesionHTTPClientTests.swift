@@ -22,7 +22,7 @@ class URLSessionHTTPClientTests : XCTestCase {
     
     func test_getFromURL_performsGetRequestWithURL() {
     
-        let url = fakeURL()
+        let url = anyURL()
         let exp = expectation(description: "Wait for request")
         
         URLProtocolStub.observeRequest { request in
@@ -49,7 +49,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         
         let exp = expectation(description: "wait for completion")
         
-        makeSUT().get(from: fakeURL()) { result in
+        makeSUT().get(from: anyURL()) { result in
             switch result {
             case let .success(recievedData, recievedResponse):
                 XCTAssertEqual(data, recievedData)
@@ -66,7 +66,7 @@ class URLSessionHTTPClientTests : XCTestCase {
     
 //    func test_getFromURL_failsOnAllInvalidPrepresentationCases()
 
-    //MARK: - Helper functions
+    //MARK: - Helpers-
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
         let sut = URLSessionHTTPClient()
@@ -80,7 +80,7 @@ class URLSessionHTTPClientTests : XCTestCase {
         
         let exp = expectation(description: "Wait for completion")
         var recievedError: Error?
-        sut.get(from: fakeURL()) { result in
+        sut.get(from: anyURL()) { result in
             switch result {
             case let .failure(error as NSError?):
                 if let error = error {
@@ -97,24 +97,15 @@ class URLSessionHTTPClientTests : XCTestCase {
         return recievedError
     }
     
-    private func fakeURL() -> URL {
-        return URL(string: "fakeurl")!
-    }
-    
+   
     private func anyData() -> Data {
         return Data.init()
     }
     
     private func anyHTTPURLResponse() -> HTTPURLResponse {
-        return HTTPURLResponse(url: fakeURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
+        return HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
     }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any Error", code: 0)
-    }
-    
-    //MARK: - Helper class
-    
+            
     private class URLProtocolStub: URLProtocol {
          
         private static var stub: Stub?

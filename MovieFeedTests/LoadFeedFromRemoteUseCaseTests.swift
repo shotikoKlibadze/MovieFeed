@@ -13,7 +13,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     //Make request call once
     func test_load_requestsDatFromURL() {
         
-        let url = URL(string: "https://a-given-url.com")!
+        let url = anyURL()
         let (sut, client) = makeSUT(url: url)
         
         sut.load{ _ in }
@@ -25,7 +25,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
    //Make netwrok call twice
     func test_loadTwice_requestsDatFromURLTwice() {
         
-        let url = URL(string: "https://a-given-url.com")!
+        let url = anyURL()
         let (sut, client) = makeSUT(url: url)
         
         sut.load{ _ in }
@@ -39,7 +39,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: .failure(RemoteFeedLoader.Error.connectivity)) {
-            let error = NSError(domain: "Test", code: 0)
+            let error = anyNSError()
             client.complete(with: error)
         }
     }
@@ -90,7 +90,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 //    }
     
     func test_load_doesNotDeliverResultAfterSUTHasBeenDealocated() {
-        let url = URL(string: "someurlr")!
+        let url = anyURL()
         let client = HTTPClientSpy()
         var sut: RemoteFeedLoader? = RemoteFeedLoader(client:client, url: url)
         
@@ -106,7 +106,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
     //MARK: - Helpers -
     
-    private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedLoader, clinet: HTTPClientSpy) {
+    private func makeSUT(url: URL = anyURL(), file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedLoader, clinet: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(client: client, url: url)
         checkForMemoryLeask(isntance: client)

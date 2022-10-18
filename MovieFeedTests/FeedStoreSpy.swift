@@ -56,7 +56,7 @@ class FeedStoreSpy: FeedStore {
     
     //MARK: Retrival
     
-    func retrieveItems(completion: @escaping (RetrieveCachedFeedResult) -> Void) {
+    func retrieve(completion: @escaping (RetrieveCachedFeedResult) -> Void) {
         retrievalCompletions.append(completion)
         recievedMessages.append(.retrieveItems)
     }

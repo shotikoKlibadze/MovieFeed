@@ -73,16 +73,16 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         }
     }
     
-    func test_load_deletesCachedFeedOnRetrievalError() {
+    func test_load_hasNoSideEffectsOnRetrievalError() {
         let (sut, store) = makeSUT()
         
         sut.load(completion: { _ in})
         store.completeRetrievalWith(error: anyNSError())
         
-        XCTAssertEqual(store.recievedMessages, [.retrieveItems, .deleteCachedFeed])
+        XCTAssertEqual(store.recievedMessages, [.retrieveItems])
     }
     
-    func test_load_doesnotdeletesCachedOnEmptyCache() {
+    func test_load_hasNoSideAffectsOnEmptyCache() {
         let (sut, store) = makeSUT()
         
         sut.load(completion: { _ in})
@@ -91,7 +91,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         XCTAssertEqual(store.recievedMessages, [.retrieveItems])
     }
     
-    func test_load_doesnotdeletesCachedOnLessThanSevenDaysOLD() {
+    func test_load_hasNoSideEffectsOnLessThanSevenDaysOLD() {
         let items = uniequeItems()
         let fixedCurrentDate = Date()
         let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
@@ -167,27 +167,4 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         return (sut, store)
     }
 
-    func anyNSError() -> NSError {
-        return NSError(domain: "any Error", code: 0)
-    }
-    
-    private func uniqueFeedItem() -> FeedItem {
-        return FeedItem(id: Int.random(in: 0...100), description: "any", title: "any", imageURL: "any")
-    }
-    
-    private func uniequeItems() -> (models: [FeedItem], local: [LocalFeedItem]) {
-        let models = [uniqueFeedItem(), uniqueFeedItem()]
-        let local = models.map({LocalFeedItem(id: $0.id, description: $0.description, title: $0.title, imageURL: $0.imageURL)})
-        return (models, local)
-    }
-}
-
-private extension Date {
-    func adding(days: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
-    }
-    
-    func adding(seconds: TimeInterval) -> Date {
-        return self + seconds
-    }
 }

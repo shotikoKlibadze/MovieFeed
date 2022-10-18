@@ -45,13 +45,18 @@ public final class LocalFeedLoader {
     //MARK: Loading
     
     public func load(completion: @escaping LoadResult) {
-        store.retrieveItems { [unowned self] result in
+        store.retrieveItems { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .failure(error: let error):
+                self.store.deleteCachedFeed(completion: { _ in})
                 completion(.failure(error))
             case .found(feed: let feed, timeStamp: let timeStamp) where self.validate(timeStamp):
                 completion(.success(feed.toModels()))
-            case .empty, .found:
+            case .found:
+                self.store.deleteCachedFeed(completion: { _ in })
+                completion(.success([]))
+            case .empty:
                 completion(.success([]))
             }
         }

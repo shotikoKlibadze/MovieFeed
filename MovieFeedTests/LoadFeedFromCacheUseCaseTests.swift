@@ -40,6 +40,28 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversCachedFeedItemsOnLessThanSevenDaysOldCache() {
+        let items = uniequeItems()
+        let fixedCurrentDate = Date()
+        let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+        
+        expect(sut: sut, toCompleteWith: .success(items.models)) {
+            store.completeRetrievalWith(items: items.local, timeStamp: lessThanSevenDaysOldTimeStamp)
+        }
+    }
+    
+    func test_load_deliversNoFeedItemsOnSevenDaysOldCache() {
+        let items = uniequeItems()
+        let fixedCurrentDate = Date()
+        let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+        
+        expect(sut: sut, toCompleteWith: .success([])) {
+            store.completeRetrievalWith(items: items.local, timeStamp: lessThanSevenDaysOldTimeStamp)
+        }
+    }
+    
     //MARK: -Helpers-
     
     private func expect(sut: LocalFeedLoader, toCompleteWith expectedResult: (Result<[FeedItem], Error>), when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
@@ -69,5 +91,25 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
 
     func anyNSError() -> NSError {
         return NSError(domain: "any Error", code: 0)
+    }
+    
+    private func uniqueFeedItem() -> FeedItem {
+        return FeedItem(id: Int.random(in: 0...100), description: "any", title: "any", imageURL: "any")
+    }
+    
+    private func uniequeItems() -> (models: [FeedItem], local: [LocalFeedItem]) {
+        let models = [uniqueFeedItem(), uniqueFeedItem()]
+        let local = models.map({LocalFeedItem(id: $0.id, description: $0.description, title: $0.title, imageURL: $0.imageURL)})
+        return (models, local)
+    }
+}
+
+private extension Date {
+    func adding(days: Int) -> Date {
+        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+    }
+    
+    func adding(seconds: TimeInterval) -> Date {
+        return self + seconds
     }
 }

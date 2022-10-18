@@ -12,7 +12,7 @@ class FeedStoreSpy: FeedStore {
     
     typealias DelitionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (Result<[FeedItem], Error>) -> Void
+    typealias RetrievalCompletion = (RetrieveCachedFeedResult) -> Void
     
     private var deletionCompletions = [DelitionCompletion]()
     private var insertionCompetions = [InsertionCompletion]()
@@ -56,17 +56,21 @@ class FeedStoreSpy: FeedStore {
     
     //MARK: Retrival
     
-    func retrieveItems(completion: @escaping (Result<[MovieFeed.FeedItem], Error>) -> Void) {
+    func retrieveItems(completion: @escaping (RetrieveCachedFeedResult) -> Void) {
         retrievalCompletions.append(completion)
         recievedMessages.append(.retrieveItems)
     }
     
     
     func completeRetrievalWith(error: Error, at index: Int = 0) {
-        retrievalCompletions[index](.failure(error))
+        retrievalCompletions[index](.failure(error: error))
     }
     
     func completeRetrievalWithEmptyCache() {
-        retrievalCompletions[0](.success([]))
+        retrievalCompletions[0](.empty)
+    }
+    
+    func completeRetrievalWith(items: [LocalFeedItem], timeStamp: Date, at index: Int = 0) {
+        retrievalCompletions[index](.found(feed: items, timeStamp: timeStamp))
     }
 }

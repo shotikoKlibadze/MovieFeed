@@ -128,6 +128,12 @@ final class CacheFeedUseCaseTests: XCTestCase {
         return FeedItem(id: Int.random(in: 0...100), description: "any", title: "any", imageURL: "any")
     }
     
+    private func uniqueFeedItem() -> (models: [FeedItem], local: [LocalFeedItem]) {
+        let models = [uniqueItem(), uniqueItem()]
+        let local = models.map({LocalFeedItem(id: $0.id, description: $0.description, title: $0.title, imageURL: $0.imageURL)})
+        return (models, local)
+    }
+    
     func anyNSError() -> NSError {
         return NSError(domain: "any Error", code: 0)
     }

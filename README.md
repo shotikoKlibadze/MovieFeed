@@ -74,7 +74,9 @@ Scenarios ( Accaptance criteria )
 
 •	System delivers feed items
 
-#### Error course (sad path):
+#### Retrieval error course (sad path):
+
+•	System deletes cache
 
 •	System delivers error
 

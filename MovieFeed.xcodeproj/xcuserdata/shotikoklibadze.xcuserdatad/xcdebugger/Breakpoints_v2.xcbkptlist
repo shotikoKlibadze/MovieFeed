@@ -109,8 +109,8 @@
             filePath = "MovieFeed/Feed Cache/LocalFeedLoader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "load(completion:)"
             landmarkType = "7">
          </BreakpointContent>

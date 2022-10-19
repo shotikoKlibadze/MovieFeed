@@ -36,7 +36,7 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
     }
     
     func test_validateCache_doesnotdeletesCachedOnLessThanSevenDaysOLD() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -48,7 +48,7 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
     }
     
     func test_validateCache_DeletesOnSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let sevenDaysOldCache = fixedCurrentDate.adding(days: -7)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -60,7 +60,7 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
     }
     
     func test_validateCache_DeletesOnMoreThanSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let moreThanSevenDaysOldCache = fixedCurrentDate.adding(days: -7).adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -78,8 +78,8 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
     func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut:LocalFeedLoader, store: FeedStoreSpy) {
         let store = FeedStoreSpy()
         let sut = LocalFeedLoader(store: store, currentDate: currentDate)
-        checkForMemoryLeask(isntance: store, file: file, line: line)
-        checkForMemoryLeask(isntance: sut, file: file, line: line)
+        trackForMemoryLeacks(isntance: store, file: file, line: line)
+        trackForMemoryLeacks(isntance: sut, file: file, line: line)
         return (sut, store)
     }
     

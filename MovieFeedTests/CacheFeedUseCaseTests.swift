@@ -119,8 +119,8 @@ final class CacheFeedUseCaseTests: XCTestCase {
     func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut:LocalFeedLoader, store: FeedStoreSpy) {
         let store = FeedStoreSpy()
         let sut = LocalFeedLoader(store: store, currentDate: currentDate)
-        checkForMemoryLeask(isntance: store, file: file, line: line)
-        checkForMemoryLeask(isntance: sut, file: file, line: line)
+        trackForMemoryLeacks(isntance: store, file: file, line: line)
+        trackForMemoryLeacks(isntance: sut, file: file, line: line)
         return (sut, store)
     }
     

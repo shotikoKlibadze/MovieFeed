@@ -41,7 +41,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_deliversCachedFeedItemsOnLessThanSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -52,7 +52,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_deliversNoFeedItemsOnSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let sevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -63,7 +63,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_deliversNoFeedItemsOnMoreThanSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let moreThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -92,7 +92,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_hasNoSideEffectsOnLessThanSevenDaysOLD() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -104,7 +104,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_hasNosideEffectsOnSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let sevenDaysOldCache = fixedCurrentDate.adding(days: -7)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -116,7 +116,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_haseNoSideEffectsOnMoreThanSevenDaysOldCache() {
-        let items = uniequeItems()
+        let items = uniqueItems()
         let fixedCurrentDate = Date()
         let moreThanSevenDaysOldCache = fixedCurrentDate.adding(days: -7).adding(seconds: -1)
         let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -162,8 +162,8 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut:LocalFeedLoader, store: FeedStoreSpy) {
         let store = FeedStoreSpy()
         let sut = LocalFeedLoader(store: store, currentDate: currentDate)
-        checkForMemoryLeask(isntance: store, file: file, line: line)
-        checkForMemoryLeask(isntance: sut, file: file, line: line)
+        trackForMemoryLeacks(isntance: store, file: file, line: line)
+        trackForMemoryLeacks(isntance: sut, file: file, line: line)
         return (sut, store)
     }
 

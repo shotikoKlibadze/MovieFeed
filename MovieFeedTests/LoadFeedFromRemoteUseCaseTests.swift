@@ -109,8 +109,8 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     private func makeSUT(url: URL = anyURL(), file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteFeedLoader, clinet: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(client: client, url: url)
-        checkForMemoryLeask(isntance: client)
-        checkForMemoryLeask(isntance: sut)
+        trackForMemoryLeacks(isntance: client)
+        trackForMemoryLeacks(isntance: sut)
         return (sut, client)
     }
     

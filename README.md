@@ -2,8 +2,7 @@
 
 # Architecture 
 #### Updated according to project progression *
-![image](https://user-images.githubusercontent.com/85555736/196954899-45851252-e192-4b1d-9bfc-918cdfeb71ea.png)
-
+<img width="1462" alt="image" src="https://user-images.githubusercontent.com/85555736/197043431-f8ae4381-c377-42c1-be17-fc58c6c9a603.png">
 # BDD Specs
 
 Story: User request to see the feed

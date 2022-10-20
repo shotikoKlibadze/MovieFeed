@@ -8,78 +8,6 @@
 import XCTest
 import MovieFeed
 
-class CodableFeedStore: FeedStore {
-    
-    private struct Cache: Codable {
-        let feedItems: [CodableFeedItem]
-        let timeStamp: Date
-        
-        var localFeed: [LocalFeedItem] {
-            return feedItems.map({$0.local})
-        }
-    }
-    
-    private struct CodableFeedItem: Codable {
-        public let id: Int
-        public let description: String?
-        public let title: String?
-        public let imageURL: String
-        
-        init(_ item: LocalFeedItem) {
-            self.id = item.id
-            self.description = item.description
-            self.title = item.title
-            self.imageURL = item.imageURL
-        }
-    
-        var local: LocalFeedItem {
-            return LocalFeedItem(id: id, description: description, title: title, imageURL: imageURL)
-        }
-    }
-    
-    private let storeURL: URL
-    
-    init(storeURL: URL) {
-        self.storeURL = storeURL
-    }
-    
-    func retrieve(completion: @escaping RetrievalCompletion) {
-        guard let data = try? Data(contentsOf: storeURL) else {
-            return completion(.empty)
-        }
-        do {
-            let decoder = JSONDecoder()
-            let cache = try decoder.decode(Cache.self, from: data)
-            completion(.found(items: cache.localFeed, timeStamp: cache.timeStamp))
-        } catch {
-            completion(.failure(error: error))
-        }
-    }
-    
-    func insertItems(items: [LocalFeedItem], date: Date, completion: @escaping InsertionCompletion) {
-        do {
-            let encoder = JSONEncoder()
-            let cache = Cache(feedItems: items.map({CodableFeedItem($0)}), timeStamp: date)
-            let encoded = try encoder.encode(cache)
-            try encoded.write(to: storeURL)
-            completion(nil)
-        } catch {
-            completion(error)
-        }
-    }
-    
-    func deleteCachedFeed(completion: @escaping DelitionCompletion) {
-        do {
-            try FileManager.default.removeItem(at: storeURL)
-            completion(nil)
-        } catch {
-            completion(error)
-        }
-    }
-    
-    
-}
-
 final class CodableFeedStoreTests: XCTestCase {
     
     override func setUp() {
@@ -150,6 +78,34 @@ final class CodableFeedStoreTests: XCTestCase {
         XCTAssertNil(delitionError, "Expected to telete cache succesfully")
         
         expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_runsSerially() {
+        let sut = makeSUT()
+        
+        var completedOperationsInOrder = [XCTestExpectation]()
+        
+        let op1 = expectation(description: "operation 1")
+        sut.insertItems(items: uniqueItems().local, date: Date()) { _ in
+            completedOperationsInOrder.append(op1)
+            op1.fulfill()
+        }
+        
+        let op2 = expectation(description: "operation 2")
+        sut.deleteCachedFeed { _ in
+            completedOperationsInOrder.append(op2)
+            op2.fulfill()
+        }
+        
+        let op3 = expectation(description: "operation 3")
+        sut.insertItems(items: uniqueItems().local, date: Date()) { _ in
+            completedOperationsInOrder.append(op3)
+            op3.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1.0)
+        
+        XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Finished in wrong order")
     }
     
     

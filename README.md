@@ -3,6 +3,18 @@
 # Architecture 
 #### Updated according to project progression *
 <img width="1462" alt="image" src="https://user-images.githubusercontent.com/85555736/197043431-f8ae4381-c377-42c1-be17-fc58c6c9a603.png">
+
+## Resources and concepts:
+
+- Architecture concept: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+- App architecture: https://www.raywenderlich.com/books/advanced-ios-app-architecture/v4.0
+- Core Data Book1: https://www.objc.io/books/core-data/
+- Core Data Book2: https://www.raywenderlich.com/books/core-data-by-tutorials/v8.0
+- TDD Book: https://www.raywenderlich.com/books/ios-test-driven-development-by-tutorials/v2.0
+- Design pattern concepts: “Design Patterns: Elements of Reusable Object-Oriented Software” by Gang of Four
+- Design pattern book: https://www.raywenderlich.com/books/design-patterns-by-tutorials/v3.0
+- Design pattern website: https://refactoring.guru/design-patterns
+
 # BDD Specs
 
 Story: User request to see the feed

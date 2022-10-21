@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MovieFeedCacheIntegrationTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>MovieFeedTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>09369B0828EEBFAA0043C091</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0949ADD42902B88B006A086F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -50,6 +50,16 @@
                ReferencedContainer = "container:MovieFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0949ADD42902B88B006A086F"
+               BuildableName = "MovieFeedCacheIntegrationTests.xctest"
+               BlueprintName = "MovieFeedCacheIntegrationTests"
+               ReferencedContainer = "container:MovieFeed.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

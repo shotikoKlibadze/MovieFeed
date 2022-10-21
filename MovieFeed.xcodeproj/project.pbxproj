@@ -37,6 +37,8 @@
 		0949ADCF29029764006A086F /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949ADCE29029764006A086F /* CoreDataHelpers.swift */; };
 		0949ADD82902B88B006A086F /* MovieFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949ADD72902B88B006A086F /* MovieFeedCacheIntegrationTests.swift */; };
 		0949ADD92902B88B006A086F /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
+		0949ADE12902C6CB006A086F /* FeedCacheTestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD7528FEC52B006A086F /* FeedCacheTestsHelpers.swift */; };
+		0949ADE22902C6D6006A086F /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -493,7 +495,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0949ADE12902C6CB006A086F /* FeedCacheTestsHelpers.swift in Sources */,
 				0949ADD82902B88B006A086F /* MovieFeedCacheIntegrationTests.swift in Sources */,
+				0949ADE22902C6D6006A086F /* MemoryLeakTrackingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

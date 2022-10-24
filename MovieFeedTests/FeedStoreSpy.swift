@@ -61,16 +61,15 @@ class FeedStoreSpy: FeedStore {
         recievedMessages.append(.retrieveItems)
     }
     
-    
     func completeRetrievalWith(error: Error, at index: Int = 0) {
-        retrievalCompletions[index](.failure(error: error))
+        retrievalCompletions[index](.failure(error))
     }
     
     func completeRetrievalWithEmptyCache() {
-        retrievalCompletions[0](.empty)
+        retrievalCompletions[0](.success(.empty))
     }
     
     func completeRetrievalWith(items: [LocalFeedItem], timeStamp: Date, at index: Int = 0) {
-        retrievalCompletions[index](.found(items: items, timeStamp: timeStamp))
+        retrievalCompletions[index](.success(.found(items: items, timeStamp: timeStamp)))
     }
 }

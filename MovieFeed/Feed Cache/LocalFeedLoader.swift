@@ -13,7 +13,7 @@ public final class LocalFeedLoader: FeedLoader {
     private let currentDate: () -> Date
     
     public typealias SaveResult = Error?
-    public typealias LoadResult = (LoadFeedResult) -> Void
+    public typealias LoadResult = (FeedLoader.Result) -> Void
     
     public init (store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
@@ -50,10 +50,10 @@ public final class LocalFeedLoader: FeedLoader {
             case .failure(error: let error):
                 
                 completion(.failure(error))
-            case .found(items: let items, timeStamp: let timeStamp) where FeedCachePolicy.validate(timeStamp, against: self.currentDate()):
+            case .success(.found(items: let items, timeStamp: let timeStamp)) where FeedCachePolicy.validate(timeStamp, against: self.currentDate()):
                 completion(.success(items.toModels()))
 
-            case .empty, .found :
+            case .success(.empty), .success(.found):
                 completion(.success([]))
             }
         }
@@ -67,7 +67,7 @@ public final class LocalFeedLoader: FeedLoader {
             switch result {
             case .failure(error: _):
                 self.store.deleteCachedFeed(completion: { _ in })
-            case .found(items: _, timeStamp: let timeStamp) where !FeedCachePolicy.validate(timeStamp, against: self.currentDate()):
+            case .success(.found(items: _, timeStamp: let timeStamp)) where !FeedCachePolicy.validate(timeStamp, against: self.currentDate()):
                 self.store.deleteCachedFeed(completion: { _ in })
             default:
                 break

@@ -7,12 +7,13 @@
 
 import Foundation
 
-public enum RetrieveCachedFeedResult {
-    case failure(error: Error)
-    case found(items: [LocalFeedItem], timeStamp: Date)
-    case empty
-}
+public typealias RetrieveCachedFeedResult = Result<CachedFeed, Error>
 
+public enum CachedFeed {
+    case empty
+    case found(items: [LocalFeedItem], timeStamp: Date)
+}
+                                                    
 public protocol FeedStore {
     
     typealias DelitionCompletion = (Error?) -> Void

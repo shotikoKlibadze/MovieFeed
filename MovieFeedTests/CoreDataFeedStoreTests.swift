@@ -46,10 +46,10 @@ final class CoreDataFeedStoreTests: XCTestCase {
             switch result {
             case .failure(error: let error):
                 recievedRetrievalError = error
-            case .found(items: let items, timeStamp: let timeStamp):
+            case .success(.found(items: let items, timeStamp: let timeStamp)):
                 recievedItems = items
                 recievedTimeStamp = timeStamp
-            case .empty:
+            case .success(.empty):
                 break
             }
             retrieveExp.fulfill()
@@ -93,10 +93,10 @@ final class CoreDataFeedStoreTests: XCTestCase {
             switch result {
             case .failure(error: let error):
                 recievedRetrievalError = error
-            case .found(items: let items, timeStamp: let timeStamp):
+            case .success(.found(items: let items, timeStamp: let timeStamp)):
                 recievedItems = items
                 recievedTimeStamp = timeStamp
-            case .empty:
+            case .success(.empty):
                 break
             }
             retrieveExp.fulfill()

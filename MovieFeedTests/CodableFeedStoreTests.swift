@@ -24,13 +24,13 @@ final class CodableFeedStoreTests: XCTestCase {
     
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .success(.empty))
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
-        expect(sut, toRetrieve: .empty)
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .success(.empty))
+        expect(sut, toRetrieve: .success(.empty))
     }
     
     func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
@@ -40,7 +40,7 @@ final class CodableFeedStoreTests: XCTestCase {
         
         insert((items,timeStamp), to: sut)
          
-        expect(sut, toRetrieve: .found(items: items, timeStamp: timeStamp))
+        expect(sut, toRetrieve: .success(.found(items: items, timeStamp: timeStamp)))
     }
     
     func test_retrieve_deliversFailureOnRetrivalError() {
@@ -49,7 +49,7 @@ final class CodableFeedStoreTests: XCTestCase {
         
         try! "invalidData".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieve: .failure(error: anyNSError()))
+        expect(sut, toRetrieve: .failure(anyNSError()))
     }
     
     func test_insert_ovverridesPreviouslyInsertedCachedValues() {
@@ -65,7 +65,7 @@ final class CodableFeedStoreTests: XCTestCase {
         let latestInsertionError = insert((latestItems,latesttimeStamp), to: sut)
         XCTAssertNil(latestInsertionError, "expected to override cache succesfully")
         
-        expect(sut, toRetrieve: .found(items: latestItems, timeStamp: latesttimeStamp))
+        expect(sut, toRetrieve: .success(.found(items: latestItems, timeStamp: latesttimeStamp)))
     }
     
     func test_delete_emptiesPreviouslyInsertedCache() {
@@ -77,7 +77,7 @@ final class CodableFeedStoreTests: XCTestCase {
         let delitionError = delete(from: sut)
         XCTAssertNil(delitionError, "Expected to telete cache succesfully")
         
-        expect(sut, toRetrieve: .empty)
+        expect(sut, toRetrieve: .success(.empty))
     }
     
     func test_runsSerially() {
@@ -122,10 +122,10 @@ final class CodableFeedStoreTests: XCTestCase {
         let exp = expectation(description: "wait for cache retrieval")
         sut.retrieve { retrievedResult in
             switch (retrievedResult, expectedResult) {
-            case (.empty, .empty), (.failure(error:_), .failure(error: _)):
+            case (.success(.empty), .success(.empty)), (.failure(_), .failure(_)):
                 break
-            case (.found(let retrievedItems,let retrievedTimeStamp),
-                  .found(let expectedItems, let expectedTimeStamp)):
+            case (.success(.found(let retrievedItems,let retrievedTimeStamp)),
+                  .success(.found(let expectedItems, let expectedTimeStamp))):
                 XCTAssertEqual(retrievedItems, expectedItems, file: file, line:line)
                 XCTAssertEqual(retrievedTimeStamp, expectedTimeStamp, file : file, line:line)
             default:

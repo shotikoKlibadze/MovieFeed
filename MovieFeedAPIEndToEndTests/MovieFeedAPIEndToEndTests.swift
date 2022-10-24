@@ -18,7 +18,7 @@ class MovieFeedAPIEndToEndTests: XCTestCase {
         let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
         let feedLoader = RemoteFeedLoader(client: client, url: url)
         
-        var recievedResult: LoadFeedResult?
+        var recievedResult: RemoteFeedLoader.Result?
         
         let exp = expectation(description: "wait for recieved data from server")
         

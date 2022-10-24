@@ -27,8 +27,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run tests
-        run: xcodebuild -project MovieFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
+        run: xcodebuild -project MovieFeed.xcodeproj -scheme "MovieFeed" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
 
       # Runs a set of commands using the runners shell
       - name: Run tests again
-        run: xcodebuild -project MovieFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test
+        run: xcodebuild -project MovieFeed.xcodeproj -scheme "MovieFeed" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test

@@ -38,16 +38,6 @@
                ReferencedContainer = "container:MovieFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "09369B0828EEBFAA0043C091"
-               BuildableName = "MovieFeedAPIEndToEndTests.xctest"
-               BlueprintName = "MovieFeedAPIEndToEndTests"
-               ReferencedContainer = "container:MovieFeed.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

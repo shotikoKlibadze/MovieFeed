@@ -190,12 +190,11 @@
 		0949AD5D28F97531006A086F /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				0949ADE32903F8DF006A086F /* FileSystem */,
 				0949ADBB290291FD006A086F /* CoreData */,
 				0949AD6128F9757A006A086F /* FeedStore.swift */,
 				0949AD5E28F97543006A086F /* LocalFeedLoader.swift */,
 				0949AD6928FD7A7B006A086F /* LocalFeedItem.swift */,
-				0949AD7B28FFD88D006A086F /* FeedCachePolicy.swift */,
-				0949AD8029003DA5006A086F /* CodableFeedStore.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -213,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				0949ADBF290292B1006A086F /* ManagedObjects */,
+				0949ADCB290296BB006A086F /* CoreDataFeedStore.swift */,
 				0949ADBC2902920B006A086F /* FeedStore.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -223,7 +223,6 @@
 			children = (
 				0949ADD029029BA3006A086F /* Objects */,
 				0949ADCE29029764006A086F /* CoreDataHelpers.swift */,
-				0949ADCB290296BB006A086F /* CoreDataFeedStore.swift */,
 			);
 			path = ManagedObjects;
 			sourceTree = "<group>";
@@ -253,6 +252,15 @@
 				0949ADD72902B88B006A086F /* MovieFeedCacheIntegrationTests.swift */,
 			);
 			path = MovieFeedCacheIntegrationTests;
+			sourceTree = "<group>";
+		};
+		0949ADE32903F8DF006A086F /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				0949AD7B28FFD88D006A086F /* FeedCachePolicy.swift */,
+				0949AD8029003DA5006A086F /* CodableFeedStore.swift */,
+			);
+			path = FileSystem;
 			sourceTree = "<group>";
 		};
 		09B1DBB02883F9DD00D8A10E = {

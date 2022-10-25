@@ -50,7 +50,6 @@
 		09E256022907D9510086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09E256032907D9510086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09E256052907D98F0086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
-		09E256072907D9980086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09E256092907E6E50086E34C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256082907E6E50086E34C /* FeedViewController.swift */; };
 		09E2560A2907E7420086E34C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256082907E6E50086E34C /* FeedViewController.swift */; };
 		09E2560C2907F3C30086E34C /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2560B2907F3C30086E34C /* FeedItemCell.swift */; };
@@ -693,7 +692,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				09E2560D2907F4540086E34C /* FeedItemCell.swift in Sources */,
-				09E256072907D9980086E34C /* MemoryLeakTrackingHelper.swift in Sources */,
 				09E2560A2907E7420086E34C /* FeedViewController.swift in Sources */,
 				09E256002907D5020086E34C /* FeedViewControllerTests.swift in Sources */,
 			);

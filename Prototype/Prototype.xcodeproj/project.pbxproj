@@ -13,7 +13,7 @@
 		0949ADFA29069C98006A086F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0949ADF929069C98006A086F /* Assets.xcassets */; };
 		0949ADFD29069C98006A086F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0949ADFB29069C98006A086F /* LaunchScreen.storyboard */; };
 		09E255DD2906A4220086E34C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E255DC2906A4220086E34C /* FeedViewController.swift */; };
-		09E255DF2906A6C90086E34C /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E255DE2906A6C90086E34C /* CellViewModel.swift */; };
+		09E255DF2906A6C90086E34C /* FeedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E255DE2906A6C90086E34C /* FeedItemViewModel.swift */; };
 		09E255E12906A9010086E34C /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E255E02906A9010086E34C /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		0949ADFC29069C98006A086F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0949ADFE29069C98006A086F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09E255DC2906A4220086E34C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		09E255DE2906A6C90086E34C /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		09E255DE2906A6C90086E34C /* FeedItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemViewModel.swift; sourceTree = "<group>"; };
 		09E255E02906A9010086E34C /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 				0949ADF229069C95006A086F /* SceneDelegate.swift */,
 				09E255DC2906A4220086E34C /* FeedViewController.swift */,
 				09E255E02906A9010086E34C /* FeedCell.swift */,
-				09E255DE2906A6C90086E34C /* CellViewModel.swift */,
+				09E255DE2906A6C90086E34C /* FeedItemViewModel.swift */,
 				0949ADF629069C95006A086F /* Main.storyboard */,
 				0949ADF929069C98006A086F /* Assets.xcassets */,
 				0949ADFB29069C98006A086F /* LaunchScreen.storyboard */,
@@ -147,7 +147,7 @@
 				0949ADF129069C95006A086F /* AppDelegate.swift in Sources */,
 				09E255E12906A9010086E34C /* FeedCell.swift in Sources */,
 				09E255DD2906A4220086E34C /* FeedViewController.swift in Sources */,
-				09E255DF2906A6C90086E34C /* CellViewModel.swift in Sources */,
+				09E255DF2906A6C90086E34C /* FeedItemViewModel.swift in Sources */,
 				0949ADF329069C95006A086F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

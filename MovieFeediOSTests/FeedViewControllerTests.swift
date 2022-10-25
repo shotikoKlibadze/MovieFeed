@@ -7,32 +7,7 @@
 
 import XCTest
 import MovieFeed
-
-class FeedViewController: UITableViewController {
-    
-    private var loader: FeedLoader?
-    
-    convenience init(loader: FeedLoader) {
-        self.init()
-        self.loader = loader
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-        refreshControl?.beginRefreshing()
-        
-       load()
-    }
-    
-    @objc private func load() {
-        loader?.load(completion: { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
-        })
-    }
-}
+import MovieFeediOS
 
 final class FeedViewControllerTests: XCTestCase {
     
@@ -76,6 +51,23 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
+    func test_loadFeedCompletion_rendersSuccessfullyTheFeed() {
+        let item = makeFeedItem(description: "descriptiobn", title: "title", id: 1)
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(sut.numberOfRenderedFeedItemViews(), 0)
+        
+        loader.completeFeedLoading(with: [item], at: 0)
+        XCTAssertEqual(sut.numberOfRenderedFeedItemViews(), 1)
+        
+        let view = sut.feedItemView(at: 0) as? FeedItemCell
+        
+        XCTAssertNotNil(view)
+        XCTAssertEqual(view?.descriptionText, item.description)
+        XCTAssertEqual(view?.titleText, item.title)
+    }
+    
     //MARK: -Helpers-
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -84,6 +76,10 @@ final class FeedViewControllerTests: XCTestCase {
         trackForMemoryLeacks(isntance: sut)
         trackForMemoryLeacks(isntance: loader)
         return (sut, loader)
+    }
+    
+    private func makeFeedItem(description: String, title: String, url: String = "www.anyurl.com", id: Int) -> FeedItem {
+        return FeedItem(id: id, description: description, title: title, imageURL: url)
     }
     
     class LoaderSpy: FeedLoader {
@@ -98,8 +94,35 @@ final class FeedViewControllerTests: XCTestCase {
             completions.append(completion)
         }
         
-        func completeFeedLoading() {
-            completions[0](.success([]))
+        func completeFeedLoading(with items: [FeedItem] = [], at index: Int = 0) {
+            completions[index](.success(items))
         }
+    }
+}
+
+private extension FeedViewController {
+    func numberOfRenderedFeedItemViews() -> Int {
+        return tableView.numberOfRows(inSection: feedItemsSection)
+    }
+    
+    func feedItemView(at row: Int) -> UITableViewCell? {
+        let ds = tableView.dataSource
+        let index = IndexPath(row: row, section: feedItemsSection)
+        return ds?.tableView(tableView, cellForRowAt: index)
+    }
+    
+    private var feedItemsSection: Int {
+        return 0
+    }
+
+}
+
+private extension FeedItemCell {
+    var titleText: String? {
+        return titleLabel.text
+    }
+    
+    var descriptionText: String? {
+        return descriptionLabel.text
     }
 }

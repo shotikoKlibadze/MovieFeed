@@ -16,8 +16,8 @@
 - Design pattern book: https://www.raywenderlich.com/books/design-patterns-by-tutorials/v3.0
 - Design pattern website: https://refactoring.guru/design-patterns
 
-## Successful CI Build:
-https://github.com/shotikoKlibadze/MovieFeed/actions/runs/3310990356/jobs/5465887851
+## CI Builds:
+https://github.com/shotikoKlibadze/MovieFeed/actions
 
 # BDD Specs
 

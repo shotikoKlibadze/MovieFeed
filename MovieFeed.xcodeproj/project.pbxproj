@@ -365,7 +365,6 @@
 		09E255E82906C55B0086E34C /* MovieFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				09E255FE2907D4C20086E34C /* FeedViewControllerTests.swift */,
 			);
 			path = MovieFeediOS;
 			sourceTree = "<group>";
@@ -373,6 +372,7 @@
 		09E255F42906C55D0086E34C /* MovieFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				09E255FE2907D4C20086E34C /* FeedViewControllerTests.swift */,
 			);
 			path = MovieFeediOSTests;
 			sourceTree = "<group>";

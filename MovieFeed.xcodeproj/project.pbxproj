@@ -37,7 +37,6 @@
 		0949ADD82902B88B006A086F /* MovieFeedCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949ADD72902B88B006A086F /* MovieFeedCacheIntegrationTests.swift */; };
 		0949ADD92902B88B006A086F /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		0949ADE12902C6CB006A086F /* FeedCacheTestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949AD7528FEC52B006A086F /* FeedCacheTestsHelpers.swift */; };
-		0949ADE22902C6D6006A086F /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBBE2883F9DE00D8A10E /* MovieFeed.docc */; };
 		09B1DBC52883F9DE00D8A10E /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; };
 		09B1DBCB2883F9DE00D8A10E /* MovieFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 09B1DBBD2883F9DD00D8A10E /* MovieFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,13 +46,15 @@
 		09B1DBDE28840CCA00D8A10E /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B1DBDD28840CCA00D8A10E /* RemoteFeedLoader.swift */; };
 		09E255F12906C55C0086E34C /* MovieFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E255E72906C55B0086E34C /* MovieFeediOS.framework */; };
 		09E256002907D5020086E34C /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E255FE2907D4C20086E34C /* FeedViewControllerTests.swift */; };
-		09E256022907D9510086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09E256032907D9510086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09E256052907D98F0086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
 		09E256092907E6E50086E34C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256082907E6E50086E34C /* FeedViewController.swift */; };
 		09E2560A2907E7420086E34C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256082907E6E50086E34C /* FeedViewController.swift */; };
 		09E2560C2907F3C30086E34C /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2560B2907F3C30086E34C /* FeedItemCell.swift */; };
 		09E2560D2907F4540086E34C /* FeedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2560B2907F3C30086E34C /* FeedItemCell.swift */; };
+		09E2560E2908081A0086E34C /* MemoryLeakTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0128EAF3C00043C091 /* MemoryLeakTrackingHelper.swift */; };
+		09E25610290809340086E34C /* MovieFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */; };
+		09E25611290809370086E34C /* MovieFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09369B0B28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -617,7 +618,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E256022907D9510086E34C /* MemoryLeakTrackingHelper.swift in Sources */,
 				09369B0C28EEBFAA0043C091 /* MovieFeedAPIEndToEndTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,7 +628,7 @@
 			files = (
 				0949ADE12902C6CB006A086F /* FeedCacheTestsHelpers.swift in Sources */,
 				0949ADD82902B88B006A086F /* MovieFeedCacheIntegrationTests.swift in Sources */,
-				0949ADE22902C6D6006A086F /* MemoryLeakTrackingHelper.swift in Sources */,
+				09E2560E2908081A0086E34C /* MemoryLeakTrackingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +656,7 @@
 				09B1DBBF2883F9DE00D8A10E /* MovieFeed.docc in Sources */,
 				0949ADC5290292DA006A086F /* ManagedFeedItem.swift in Sources */,
 				0949ADC4290292DA006A086F /* ManagedFeedItem+CoreDataClass.swift in Sources */,
+				09E25610290809340086E34C /* MovieFeedAPIEndToEndTests.swift in Sources */,
 				09E256032907D9510086E34C /* MemoryLeakTrackingHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +673,7 @@
 				0949AD5C28F81C32006A086F /* CacheFeedUseCaseTests.swift in Sources */,
 				0949AD7628FEC52B006A086F /* FeedCacheTestsHelpers.swift in Sources */,
 				0949AD7828FEC616006A086F /* SharedTestHelpers.swift in Sources */,
+				09E25611290809370086E34C /* MovieFeedAPIEndToEndTests.swift in Sources */,
 				0949AD7228FD8932006A086F /* FeedStoreSpy.swift in Sources */,
 				0949AD6F28FD81FF006A086F /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				09E256052907D98F0086E34C /* MemoryLeakTrackingHelper.swift in Sources */,

@@ -23,7 +23,6 @@ public class FeedItemCell: UITableViewCell {
     
     var onRetry: (() -> Void)?
     
-    
     @objc private func retryButtonTapped() {
         onRetry?()
     }

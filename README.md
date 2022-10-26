@@ -2,7 +2,7 @@
 
 # Architecture 
 #### Updated according to project progression *
-![image](https://user-images.githubusercontent.com/85555736/197180749-23f5b24f-209c-4b31-a282-1845e6d2f364.png)
+![image](https://user-images.githubusercontent.com/85555736/198049989-dcd27d30-da5c-4489-ae94-a91c50a8c549.png)
 
 ## Resources and concepts:
 

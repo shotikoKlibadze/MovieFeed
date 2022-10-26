@@ -6,31 +6,30 @@
 //
 
 import UIKit
-import MovieFeed
 
 final class RefreshViewController: NSObject {
     
-    lazy var view: UIRefreshControl = {
-        let view = UIRefreshControl()
-        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        return view
-    }()
+    lazy var view = binded(UIRefreshControl())
     
-    private let feedLoader: FeedLoader
+    private let viewModel: FeedViewModel
     
-    var onRefresh: (([FeedItem]) -> Void)?
-    
-    init(feedLodaer: FeedLoader) {
-        self.feedLoader = feedLodaer
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
     }
     
     @objc func refresh() {
-        view.beginRefreshing()
-        feedLoader.load(completion: { [weak self] result in
-            if let items = try? result.get() {
-                self?.onRefresh?(items)
+        viewModel.loadFeed()
+    }
+    
+    private func binded(_ view: UIRefreshControl) -> UIRefreshControl {
+        viewModel.onLoadingStateChange = { [weak view] isLoading in
+            if isLoading {
+                view?.beginRefreshing()
+            } else {
+                view?.endRefreshing()
             }
-            self?.view.endRefreshing()
-        })
+        }
+        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return view
     }
 }

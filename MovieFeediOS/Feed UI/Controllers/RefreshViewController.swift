@@ -7,27 +7,31 @@
 
 import UIKit
 
+protocol RefreshViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
 //MARK: - MVP Pattern -
 final class RefreshViewController: NSObject, FeedLoadingView {
-    
+
     lazy var view: UIRefreshControl = {
         let view = UIRefreshControl()
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
     }()
     
-    private let presenter: FeedPresenter
+    private let delegate: RefreshViewControllerDelegate
     
-    init(presenter: FeedPresenter) {
-        self.presenter = presenter
+    init(delegate: RefreshViewControllerDelegate) {
+        self.delegate = delegate
     }
     
     @objc func refresh() {
-        presenter.loadFeed()
+        delegate.didRequestFeedRefresh()
     }
     
-    func display(isLoading: Bool) {
-        if isLoading {
+    func display(model: FeedLoadingViewModel) {
+        if model.isLoading {
             view.beginRefreshing()
         } else {
             view.endRefreshing()

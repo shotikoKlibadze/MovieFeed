@@ -14,14 +14,14 @@ public final class FeedUIComposer {
     //MARK: - MVP Pattern -
     
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedItemImageDataLoader) -> FeedViewController {
-        let presenter = FeedPresenter(feedLodaer: feedLoader)
-        let refreshController = RefreshViewController(presenter: presenter)
+        let presentationAdapter = FeedLoaderPresentationAdapter(loader: feedLoader)
+        let refreshController = RefreshViewController(delegate: presentationAdapter)
         let feedControler = FeedViewController(refreshController: refreshController)
-        let feedViewAdapter = FeedViewAdapter(controller: feedControler, imageLoader: imageLoader)
+        let presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedControler,
+                                                                imageLoader: imageLoader),
+                                      feedLoadingView: WeakRefVirtualProxy(refreshController))
         
-        presenter.feedLoadingView = WeakRefVirtualProxy(refreshController)
-        presenter.feedView = feedViewAdapter
-        
+        presentationAdapter.presenter = presenter
         return feedControler
     }
     
@@ -49,8 +49,8 @@ private final class WeakRefVirtualProxy<T: AnyObject>{
 }
 
 extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
-    func display(isLoading: Bool) {
-        object?.display(isLoading: isLoading)
+    func display(model: FeedLoadingViewModel) {
+        object?.display(model: model)
     }
 }
 
@@ -64,11 +64,33 @@ private final class FeedViewAdapter: FeedView {
         self.imageLoader = imageLoader
     }
     
-    func display(feed: [FeedItem]) {
-        controller?.tableModels = feed.map({ feedItem in
+    func display(model: FeedItemsViewModel) {
+        controller?.tableModels = model.items.map({ feedItem in
             let viewModel = FeedItemViewModel(feedItem: feedItem, imageLoader: imageLoader)
             return FeedItemCellController(viewModel: viewModel)
         })
     }
 
+}
+
+private final class FeedLoaderPresentationAdapter: RefreshViewControllerDelegate {
+    
+    let loader: FeedLoader
+    var presenter: FeedPresenter?
+    
+    init(loader: FeedLoader) {
+        self.loader = loader
+    }
+    
+    func didRequestFeedRefresh() {
+        presenter?.didStartLoadingFeed()
+        loader.load { [weak self] result in
+            switch result{
+            case .success(let items):
+                self?.presenter?.didFinishLoadingFeed(with: items)
+            case .failure(let error):
+                self?.presenter?.didFinisLoadingFeed(with: error)
+            }
+        }
+    }
 }

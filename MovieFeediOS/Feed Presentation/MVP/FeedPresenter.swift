@@ -8,34 +8,44 @@
 import Foundation
 import MovieFeed
 
+struct FeedLoadingViewModel {
+    let isLoading: Bool
+   // let lastUpdated: String
+}
+
 protocol FeedLoadingView {
-    func display(isLoading: Bool)
+    func display(model: FeedLoadingViewModel)
+}
+
+struct FeedItemsViewModel {
+    let items: [FeedItem]
 }
 
 protocol FeedView {
-    func display(feed: [FeedItem])
+    func display(model: FeedItemsViewModel)
 }
 
 final class FeedPresenter {
 
-    typealias Observer<T> = (T) -> Void
-
-    private let feedLoader: FeedLoader
-
-    var feedView: FeedView?
-    var feedLoadingView: FeedLoadingView?
-
-    init(feedLodaer: FeedLoader) {
-        self.feedLoader = feedLodaer
+    let feedView: FeedView
+    let feedLoadingView: FeedLoadingView
+    
+    init(feedView: FeedView, feedLoadingView: FeedLoadingView) {
+        self.feedView = feedView
+        self.feedLoadingView = feedLoadingView
     }
 
-    func loadFeed() {
-        feedLoadingView?.display(isLoading: true)
-        feedLoader.load(completion: { [weak self] result in
-            if let items = try? result.get() {
-                self?.feedView?.display(feed: items)
-            }
-            self?.feedLoadingView?.display(isLoading: false)
-        })
+    func didStartLoadingFeed() {
+        feedLoadingView.display(model: FeedLoadingViewModel(isLoading: true))
     }
+    
+    func didFinishLoadingFeed(with items: [FeedItem]) {
+        feedView.display(model: FeedItemsViewModel(items: items))
+        feedLoadingView.display(model: FeedLoadingViewModel(isLoading: false))
+    }
+    
+    func didFinisLoadingFeed(with error: Error) {
+        feedLoadingView.display(model: FeedLoadingViewModel(isLoading: false))
+    }
+
 }

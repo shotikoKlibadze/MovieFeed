@@ -189,8 +189,8 @@
             filePath = "MovieFeediOS/Feed UI/Controllers/RefreshViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "refresh()"
             landmarkType = "7">
             <Locations>
@@ -271,102 +271,6 @@
                   startingLineNumber = "28"
                   endingLineNumber = "28"
                   offsetFromSymbolStart = "457">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2A6D1926-2E8F-4F94-8F9B-43B972E2CC9A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieFeediOS/Feed UI/Controllers/RefreshViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "binded(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2A6D1926-2E8F-4F94-8F9B-43B972E2CC9A - d43d013dff4ac2dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MovieFeediOSTests.FeedViewModel) -&gt; () in MovieFeediOSTests.RefreshViewController.binded(__C.UIRefreshControl) -&gt; __C.UIRefreshControl"
-                  moduleName = "MovieFeediOSTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Controllers/RefreshViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "182">
-               </Location>
-               <Location
-                  uuid = "2A6D1926-2E8F-4F94-8F9B-43B972E2CC9A - a098becc9f70a54f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MovieFeediOS.FeedViewModel) -&gt; () in MovieFeediOS.RefreshViewController.binded(__C.UIRefreshControl) -&gt; __C.UIRefreshControl"
-                  moduleName = "MovieFeediOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Controllers/RefreshViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "182">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6D6B7ADB-ABEA-4BFE-A5CE-F8010DC258E6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieFeediOS/Feed UI/Controllers/RefreshViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "binded(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6D6B7ADB-ABEA-4BFE-A5CE-F8010DC258E6 - d43d013dff4ac29b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MovieFeediOSTests.FeedViewModel) -&gt; () in MovieFeediOSTests.RefreshViewController.binded(__C.UIRefreshControl) -&gt; __C.UIRefreshControl"
-                  moduleName = "MovieFeediOSTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Controllers/RefreshViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "357">
-               </Location>
-               <Location
-                  uuid = "6D6B7ADB-ABEA-4BFE-A5CE-F8010DC258E6 - a098becc9f70a509"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MovieFeediOS.FeedViewModel) -&gt; () in MovieFeediOS.RefreshViewController.binded(__C.UIRefreshControl) -&gt; __C.UIRefreshControl"
-                  moduleName = "MovieFeediOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Controllers/RefreshViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "357">
                </Location>
             </Locations>
          </BreakpointContent>

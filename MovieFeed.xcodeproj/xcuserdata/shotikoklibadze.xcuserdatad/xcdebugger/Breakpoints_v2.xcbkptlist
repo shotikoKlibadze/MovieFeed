@@ -275,5 +275,117 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0EF7384-3C52-4596-82AA-5327678A26D0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieFeediOS/Feed Presentation/MVVM/FeedViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C546D151-795F-4A20-A601-DDD616D2A4DD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieFeediOS/Feed UI/Composers/FeedUIComposer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "didRequestFeedItem()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C546D151-795F-4A20-A601-DDD616D2A4DD - 83d8b58f50f9f76c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieFeediOSTests.FeedItemPresentationAdapter.didRequestFeedItem() -&gt; ()"
+                  moduleName = "MovieFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Composers/FeedUIComposer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "167">
+               </Location>
+               <Location
+                  uuid = "C546D151-795F-4A20-A601-DDD616D2A4DD - e8741e4083bf70ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieFeediOS.FeedItemPresentationAdapter.didRequestFeedItem() -&gt; ()"
+                  moduleName = "MovieFeediOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Composers/FeedUIComposer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "167">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FED101C-4D59-4887-96DB-91555F09BB71"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieFeediOS/Feed Presentation/MVP/FeedItemPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "didFinishLoadingImageData(with:for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5FED101C-4D59-4887-96DB-91555F09BB71 - 7597b22cabdd3472"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieFeediOSTests.FeedItemPresenter.didFinishLoadingImageData(with: __C.UIImage, for: MovieFeed.FeedItem) -&gt; ()"
+                  moduleName = "MovieFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20Presentation/MVP/FeedItemPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "98">
+               </Location>
+               <Location
+                  uuid = "5FED101C-4D59-4887-96DB-91555F09BB71 - 2ffe4c1e7d31d2ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MovieFeediOS.FeedItemPresenter.didFinishLoadingImageData(with: __C.UIImage, for: MovieFeed.FeedItem) -&gt; ()"
+                  moduleName = "MovieFeediOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20Presentation/MVP/FeedItemPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "98">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

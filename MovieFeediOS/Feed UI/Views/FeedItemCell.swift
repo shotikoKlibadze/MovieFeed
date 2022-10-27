@@ -9,10 +9,21 @@ import UIKit
 import MovieFeed
 
 public class FeedItemCell: UITableViewCell {
+    
     public let titleLabel = UILabel()
     public let descriptionLabel = UILabel()
     public let imageContainer = UIView()
     public let posterImageView = UIImageView()
+    
+    var isShimmering: Bool! {
+        didSet {
+            if isShimmering {
+                imageContainer.startShimmering()
+            } else {
+                imageContainer.stopShimmering()
+            }
+        }
+    }
    
     
     public lazy var imageRetryButton: UIButton = {

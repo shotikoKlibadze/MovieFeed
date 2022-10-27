@@ -7,44 +7,95 @@
 
 import UIKit
 
-final class FeedItemCellController {
-    
-    let viewModel: FeedItemViewModel
-    
-    init(viewModel: FeedItemViewModel) {
-        self.viewModel = viewModel
-    }
+struct FeedItemViewModel{
+    let title: String?
+    let description: String?
+    let image: UIImage?
+    let isLoading: Bool
+    let shouldRetry: Bool
+}
 
-    func view() -> UITableViewCell {
-        let cell = binded(cell: FeedItemCell())
-        viewModel.loadImage()
-        return cell
+protocol FeedImageCellControllerDelegate {
+    func didRequestFeedItem()
+    func didCancelImageRequest()
+}
+
+final class FeedItemCellController: FeedItemView {
+
+    typealias Image = UIImage
+    
+    private lazy var cell = FeedItemCell()
+    
+    private let delegate: FeedImageCellControllerDelegate
+    
+    init(delegate: FeedImageCellControllerDelegate) {
+        self.delegate = delegate
     }
     
-    func binded(cell: FeedItemCell) -> FeedItemCell {
-        cell.descriptionLabel.text = viewModel.descriptiom
-        cell.titleLabel.text = viewModel.tittle
-        viewModel.onIsLoaded = { [weak cell] isLoaded in
-            if isLoaded {
-                cell?.stopShimmering()
-            } else { cell?.startShimmering() }
-        }
-        viewModel.onImageLoad = { [weak cell] image in
-            cell?.posterImageView.image = image
-        }
-        
-        viewModel.shouldRetryToReload = { [weak cell] shouldRetry in
-            cell?.imageRetryButton.isHidden = !shouldRetry
-        }
-        cell.onRetry = viewModel.reloadImage
+    func view() -> UITableViewCell {
+        delegate.didRequestFeedItem()
         return cell
     }
     
     func preload() {
-        viewModel.loadImage()
+        delegate.didRequestFeedItem()
     }
     
     func cancelLoad() {
-        viewModel.cancelLoad()
+        delegate.didCancelImageRequest()
     }
+    
+    func display(_ model: FeedItemViewModel) {
+        cell.descriptionLabel.text = model.description
+        cell.titleLabel.text = model.title
+        cell.posterImageView.image = model.image
+        cell.isShimmering = model.isLoading
+        cell.imageRetryButton.isHidden = !model.shouldRetry
+        cell.onRetry = delegate.didRequestFeedItem
+    }
+   
 }
+
+//MARK: -MVVM Pattern-
+
+//final class FeedItemCellController {
+//
+//    let viewModel: FeedItemViewModel
+//
+//    init(viewModel: FeedItemViewModel) {
+//        self.viewModel = viewModel
+//    }
+//
+//    func view() -> UITableViewCell {
+//        let cell = binded(cell: FeedItemCell())
+//        viewModel.loadImage()
+//        return cell
+//    }
+//
+//    func binded(cell: FeedItemCell) -> FeedItemCell {
+//        cell.descriptionLabel.text = viewModel.descriptiom
+//        cell.titleLabel.text = viewModel.tittle
+//        viewModel.onIsLoaded = { [weak cell] isLoaded in
+//            if isLoaded {
+//                cell?.stopShimmering()
+//            } else { cell?.startShimmering() }
+//        }
+//        viewModel.onImageLoad = { [weak cell] image in
+//            cell?.posterImageView.image = image
+//        }
+//
+//        viewModel.shouldRetryToReload = { [weak cell] shouldRetry in
+//            cell?.imageRetryButton.isHidden = !shouldRetry
+//        }
+//        cell.onRetry = viewModel.reloadImage
+//        return cell
+//    }
+//
+//    func preload() {
+//        viewModel.loadImage()
+//    }
+//
+//    func cancelLoad() {
+//        viewModel.cancelLoad()
+//    }
+//}

@@ -11,6 +11,7 @@ public protocol FeedItemImageDataLoaderTask {
     func cancel()
 }
 
-public protocol FeedItemImageDataLoader {
+public protocol FeedItemImageDataLoader: AnyObject {
+    @discardableResult
     func loadImageData(from url: URL, completion: @escaping (Result<Data, Error>) -> Void) -> FeedItemImageDataLoaderTask
 }

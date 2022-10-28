@@ -24,7 +24,7 @@ final class FeedItemCellController: FeedItemView {
 
     typealias Image = UIImage
     
-    private lazy var cell = FeedItemCell()
+    private var cell: FeedItemCell?
     
     private let delegate: FeedImageCellControllerDelegate
     
@@ -32,7 +32,9 @@ final class FeedItemCellController: FeedItemView {
         self.delegate = delegate
     }
     
-    func view() -> UITableViewCell {
+    func view(in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedItemCell") as! FeedItemCell
+        self.cell = cell
         delegate.didRequestFeedItem()
         return cell
     }
@@ -42,19 +44,24 @@ final class FeedItemCellController: FeedItemView {
     }
     
     func cancelLoad() {
+        releaseCellForReuse()
         delegate.didCancelImageRequest()
     }
     
     func display(_ model: FeedItemViewModel) {
-        cell.descriptionLabel.text = model.description
-        cell.titleLabel.text = model.title
-        cell.posterImageView.image = model.image
-        cell.isShimmering = model.isLoading
-        cell.imageRetryButton.isHidden = !model.shouldRetry
-        cell.onRetry = delegate.didRequestFeedItem
+        cell?.descriptionLabel.text = model.description
+        cell?.titleLabel.text = model.title
+        cell?.posterImageView.setImageAnimated(model.image)
+        cell?.isShimmering = model.isLoading
+        cell?.onRetry = delegate.didRequestFeedItem
     }
-   
+    
+    private func releaseCellForReuse() {
+        cell = nil
+    }
 }
+
+
 
 //MARK: -MVVM Pattern-
 

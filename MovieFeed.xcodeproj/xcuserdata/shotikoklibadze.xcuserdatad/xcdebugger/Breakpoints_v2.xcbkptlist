@@ -182,54 +182,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CB4B1242-0608-431A-88C9-163F26A10932"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieFeediOS/Feed UI/Controllers/RefreshViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "refresh()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CB4B1242-0608-431A-88C9-163F26A10932 - 25e21f989c84ea29"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieFeediOSTests.RefreshViewController.refresh() -&gt; ()"
-                  moduleName = "MovieFeediOSTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Controllers/RefreshViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "CB4B1242-0608-431A-88C9-163F26A10932 - 55e150c9fd3e039"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieFeediOS.RefreshViewController.refresh() -&gt; ()"
-                  moduleName = "MovieFeediOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Controllers/RefreshViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2CA89276-ABFC-48ED-A69D-3BAA00F1C213"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -237,8 +189,8 @@
             filePath = "MovieFeediOS/Feed UI/Controllers/FeedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -289,54 +241,6 @@
             endingLineNumber = "19"
             landmarkName = "unknown"
             landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C546D151-795F-4A20-A601-DDD616D2A4DD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieFeediOS/Feed UI/Composers/FeedUIComposer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "didRequestFeedItem()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C546D151-795F-4A20-A601-DDD616D2A4DD - 83d8b58f50f9f76c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieFeediOSTests.FeedItemPresentationAdapter.didRequestFeedItem() -&gt; ()"
-                  moduleName = "MovieFeediOSTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Composers/FeedUIComposer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "167">
-               </Location>
-               <Location
-                  uuid = "C546D151-795F-4A20-A601-DDD616D2A4DD - e8741e4083bf70ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MovieFeediOS.FeedItemPresentationAdapter.didRequestFeedItem() -&gt; ()"
-                  moduleName = "MovieFeediOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shotikoklibadze/Desktop/MovieFeed/MovieFeediOS/Feed%20UI/Composers/FeedUIComposer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "167">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

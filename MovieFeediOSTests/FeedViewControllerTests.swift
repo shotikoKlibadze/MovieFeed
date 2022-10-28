@@ -23,12 +23,7 @@ final class FeedViewControllerTests: XCTestCase {
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
-        
-        sut.refreshControl?.allTargets.forEach({ target in
-            sut.refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach({ selctorString in
-                (target as NSObject).perform(Selector(selctorString))
-            })
-        })
+        sut.refreshControl?.simulatePullRefresh()
         
         XCTAssertEqual(loader.loadCallCount, 2)
     }
@@ -52,7 +47,10 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     func test_loadFeedCompletion_rendersSuccessfullyTheFeed() {
-        let item = makeFeedItem(description: "descriptiobn", title: "title", id: 1)
+        let item = makeFeedItem(description: "description", title: "title", id: 1)
+        let item2 = makeFeedItem(description: "description", title: "title", id: 1)
+        let item3 = makeFeedItem(description: "description", title: "title", id: 1)
+        let item4 = makeFeedItem(description: "description", title: "title", id: 1)
         let (sut, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
@@ -66,6 +64,11 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertNotNil(view)
         XCTAssertEqual(view?.descriptionText, item.description)
         XCTAssertEqual(view?.titleText, item.title)
+        
+        sut.refreshControl?.simulatePullRefresh()
+        
+        loader.completeFeedLoading(with: [item, item2, item3, item4], at: 1)
+        XCTAssertEqual(sut.numberOfRenderedFeedItemViews(), 4)
     }
     
     //MARK: -Helpers-
@@ -84,8 +87,6 @@ final class FeedViewControllerTests: XCTestCase {
     
     class LoaderSpy: FeedLoader, FeedItemImageDataLoader {
         
-        
-       
         var completions = [(FeedLoader.Result) -> Void]()
        
         var loadCallCount: Int {
@@ -116,6 +117,16 @@ final class FeedViewControllerTests: XCTestCase {
                 self?.canceledImageURLs.append(url)
             }
         }
+    }
+}
+
+extension UIRefreshControl {
+    func simulatePullRefresh() {
+        allTargets.forEach({ target in
+            actions(forTarget: target, forControlEvent: .valueChanged)?.forEach({ selctorString in
+                (target as NSObject).perform(Selector(selctorString))
+            })
+        })
     }
 }
 

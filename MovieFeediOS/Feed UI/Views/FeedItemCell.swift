@@ -10,10 +10,10 @@ import MovieFeed
 
 public class FeedItemCell: UITableViewCell {
     
-    public let titleLabel = UILabel()
-    public let descriptionLabel = UILabel()
-    public let imageContainer = UIView()
-    public let posterImageView = UIImageView()
+    @IBOutlet public var titleLabel: UILabel!
+    @IBOutlet public var descriptionLabel: UILabel!
+    @IBOutlet public var imageContainer: UIView!
+    @IBOutlet public var posterImageView: UIImageView!
     
     var isShimmering: Bool! {
         didSet {
@@ -24,22 +24,11 @@ public class FeedItemCell: UITableViewCell {
             }
         }
     }
-   
-    
-    public lazy var imageRetryButton: UIButton = {
-        let imageRetryButton = UIButton()
-        imageRetryButton.addTarget(self, action: #selector(retryButtonTapped), for: .touchUpInside)
-        return imageRetryButton
-    }()
-    
+
     var onRetry: (() -> Void)?
     
-    @objc private func retryButtonTapped() {
+    @IBAction private func retryButtonTapped() {
         onRetry?()
     }
-    
-    func configure(with item: FeedItem) {
-        titleLabel.text = item.title
-        descriptionLabel.text = item.description
-    }
+
 }

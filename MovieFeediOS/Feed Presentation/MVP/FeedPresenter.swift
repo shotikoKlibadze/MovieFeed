@@ -13,10 +13,6 @@ struct FeedLoadingViewModel {
    // let lastUpdated: String
 }
 
-protocol FeedLoadingView {
-    func display(model: FeedLoadingViewModel)
-}
-
 struct FeedItemsViewModel {
     let items: [FeedItem]
 }

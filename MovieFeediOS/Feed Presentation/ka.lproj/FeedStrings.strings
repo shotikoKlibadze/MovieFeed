@@ -1,0 +1,10 @@
+/* 
+  FeedStrings.strings
+  MovieFeed
+
+  Created by Shotiko Klibadze on 28.10.22.
+  
+*/
+
+"FEED_VIEW_TITLE" = "ჩემი ფიდი";
+"FEED_VIEW_CONNECTION_ERROR" = "კავშირის პრობლემა";

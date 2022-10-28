@@ -9,7 +9,7 @@ import XCTest
 import MovieFeed
 import MovieFeediOS
 
-final class FeedViewControllerTests: XCTestCase {
+final class FeedUIIntegrationTests: XCTestCase {
     
     func test_viewDidLoad_LoadsFeed() {
         let (sut, loader) = makeSUT()
@@ -69,6 +69,21 @@ final class FeedViewControllerTests: XCTestCase {
         
         loader.completeFeedLoading(with: [item, item2, item3, item4], at: 1)
         XCTAssertEqual(sut.numberOfRenderedFeedItemViews(), 4)
+    }
+    
+    func test_loadFeedCompletion_dispatchesFrombacktoruhdToMainThread() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        let exp = expectation(description: "wait for background queue")
+        
+        DispatchQueue.global().async {
+            loader.completeFeedLoading()
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     //MARK: -Helpers-

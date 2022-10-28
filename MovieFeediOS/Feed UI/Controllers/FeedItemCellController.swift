@@ -7,14 +7,6 @@
 
 import UIKit
 
-struct FeedItemViewModel{
-    let title: String?
-    let description: String?
-    let image: UIImage?
-    let isLoading: Bool
-    let shouldRetry: Bool
-}
-
 protocol FeedImageCellControllerDelegate {
     func didRequestFeedItem()
     func didCancelImageRequest()

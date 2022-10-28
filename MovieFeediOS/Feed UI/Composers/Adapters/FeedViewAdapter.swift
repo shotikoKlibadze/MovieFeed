@@ -17,7 +17,7 @@ final class FeedViewAdapter: FeedView {
         self.imageLoader = imageLoader
     }
     
-    func display(model: FeedItemsViewModel) {
+    func display(model: FeedViewModel) {
         controller?.tableModels = model.items.map({ feedItem in
             let presentationAdapter = FeedItemPresentationAdapter(feedItem: feedItem, imageLoader: imageLoader)
             let cellController = FeedItemCellController(delegate: presentationAdapter)

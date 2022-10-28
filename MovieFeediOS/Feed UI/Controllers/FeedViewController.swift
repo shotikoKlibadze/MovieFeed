@@ -12,10 +12,6 @@ protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
-protocol FeedLoadingView {
-    func display(model: FeedLoadingViewModel)
-}
-
 final public class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView {
     
     var delegate: FeedViewControllerDelegate?

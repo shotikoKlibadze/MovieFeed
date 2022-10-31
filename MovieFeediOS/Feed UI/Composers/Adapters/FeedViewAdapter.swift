@@ -5,7 +5,7 @@
 //  Created by Shotiko Klibadze on 28.10.22.
 //
 
-import Foundation
+import MovieFeed
 
 final class FeedViewAdapter: FeedView {
     

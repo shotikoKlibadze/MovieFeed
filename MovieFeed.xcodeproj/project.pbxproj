@@ -92,6 +92,8 @@
 		09E256D3290FC1520086E34C /* RemoteFeedItemImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256D2290FC1520086E34C /* RemoteFeedItemImageDataLoader.swift */; };
 		09E256D5290FF9180086E34C /* FeedItemImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256D4290FF9180086E34C /* FeedItemImageDataStore.swift */; };
 		09E256D7290FFB770086E34C /* LocalFeedItemImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E256D6290FFB770086E34C /* LocalFeedItemImageDataStore.swift */; };
+		09E256DA2910041B0086E34C /* MovieFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; platformFilter = ios; };
+		09E256DB2910041B0086E34C /* MovieFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09B1DBBA2883F9DD00D8A10E /* MovieFeed.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +125,28 @@
 			remoteGlobalIDString = 09E255E62906C55B0086E34C;
 			remoteInfo = MovieFeediOS;
 		};
+		09E256DC2910041B0086E34C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09B1DBB12883F9DD00D8A10E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09B1DBB92883F9DD00D8A10E;
+			remoteInfo = MovieFeed;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		09E256DE2910041B0086E34C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				09E256DB2910041B0086E34C /* MovieFeed.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		09369AEF28DB16F00043C091 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -230,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09E256DA2910041B0086E34C /* MovieFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +395,7 @@
 				09E255E82906C55B0086E34C /* MovieFeediOS */,
 				09E255F42906C55D0086E34C /* MovieFeediOSTests */,
 				09B1DBBB2883F9DD00D8A10E /* Products */,
+				09E256D92910041B0086E34C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -539,6 +564,13 @@
 			path = Decorators;
 			sourceTree = "<group>";
 		};
+		09E256D92910041B0086E34C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -640,10 +672,12 @@
 				09E255E32906C55B0086E34C /* Sources */,
 				09E255E42906C55B0086E34C /* Frameworks */,
 				09E255E52906C55B0086E34C /* Resources */,
+				09E256DE2910041B0086E34C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				09E256DD2910041B0086E34C /* PBXTargetDependency */,
 			);
 			name = MovieFeediOS;
 			productName = MovieFeediOS;
@@ -676,7 +710,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					09369B0828EEBFAA0043C091 = {
 						CreatedOnToolsVersion = 13.3;
@@ -914,6 +948,12 @@
 			target = 09E255E62906C55B0086E34C /* MovieFeediOS */;
 			targetProxy = 09E255F22906C55C0086E34C /* PBXContainerItemProxy */;
 		};
+		09E256DD2910041B0086E34C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 09B1DBB92883F9DD00D8A10E /* MovieFeed */;
+			targetProxy = 09E256DC2910041B0086E34C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -934,6 +974,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -951,6 +992,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -969,6 +1011,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -987,6 +1030,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -1034,6 +1078,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1098,6 +1143,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1126,6 +1172,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1156,6 +1203,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1186,6 +1234,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -1204,6 +1253,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XZ3GM4S56F;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;

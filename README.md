@@ -4,7 +4,7 @@
 #### Updated according to project progression *
 <img width="1304" alt="image" src="https://user-images.githubusercontent.com/85555736/198126649-95b2a0d7-5998-4fb0-a99c-5f158f515827.png">
 
-## Resources and concepts:
+## Resources and concepts
 
 - Architecture concept: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 - App architecture: https://www.raywenderlich.com/books/advanced-ios-app-architecture/v4.0
